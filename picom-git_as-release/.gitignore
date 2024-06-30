@@ -1,0 +1,7 @@
+pkg/
+src/
+picom/
+*.tar
+*.tar.zst
+*.tar.gz
+*.tar.xz
