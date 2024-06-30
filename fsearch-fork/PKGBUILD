@@ -1,0 +1,29 @@
+pkgname=fsearch-fork
+_gitname=fsearch
+pkgver=0.2.3
+pkgrel=1
+pkgdesc="A fast graphical file search utility."
+arch=('i686' 'x86_64')
+url="https://cboxdoerfer.github.io/fsearch"
+license=('GPL2')
+depends=('gtk3' 'icu' 'pcre2')
+makedepends=('git' 'meson')
+provides=('fsearch')
+conflicts=('fsearch' 'fsearch-git')
+source=("$_gitname-$pkgver.tar.gz"::"https://github.com/kj-sh604/fsearch/archive/refs/tags/$pkgver.tar.gz")
+sha256sums=('b3c576bf1230da7c374d00bb32d72686b940b4dee80d941495acfdd5437bf117')
+
+build() {
+    arch-meson $_gitname-$pkgver build \
+        --buildtype release \
+        -Dchannel=AUR-stable
+    meson compile -C build
+}
+
+check() {
+    meson test -C build
+}
+
+package() {
+    DESTDIR="$pkgdir" meson install -C build
+}
