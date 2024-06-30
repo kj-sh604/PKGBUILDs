@@ -1,0 +1,7 @@
+pkg/
+src/
+gnome-system-monitor/
+*.tar
+*.tar.zst
+*.tar.gz
+*.tar.xz
