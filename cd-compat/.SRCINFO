@@ -1,0 +1,8 @@
+pkgbase = cd-compat
+	pkgdesc = cd 'binary' from Fedora Workstation
+	pkgver = 1
+	pkgrel = 1
+	arch = any
+	license = UNLICENSE
+
+pkgname = cd-compat
