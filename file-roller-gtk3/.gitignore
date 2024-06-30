@@ -1,0 +1,7 @@
+pkg/
+file-roller/
+src/
+*.tar
+*.tar.zst
+*.tar.gz
+*.tar.xz
