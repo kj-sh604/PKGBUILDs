@@ -1,0 +1,12 @@
+pkgbase = nvim-vim
+	pkgdesc = A symlink for using neovim as a vim dropin replacement
+	pkgver = 1
+	pkgrel = 604
+	url = https://github.com/neovim/neovim
+	arch = any
+	license = The Unlicense
+	depends = neovim
+	provides = vim
+	conflicts = vim
+
+pkgname = nvim-vim

@@ -1,0 +1,20 @@
+# Maintainer: kj_sh604 
+# don't talk to me 
+# Original Maintainer: Stetsed <stetsed at protonmaildotcom>
+# talk to them instead 
+pkgname=nvim-vim
+pkgver=1
+pkgrel=604
+pkgdesc="A symlink for using neovim as a vim dropin replacement"
+arch=('any')
+url="https://github.com/neovim/neovim"
+license=('The Unlicense')
+depends=('neovim')
+provides=('vim')
+conflicts=('vim')
+
+package() {
+  install -d "$pkgdir"/usr/bin
+  ln -s $(which nvim) "$pkgdir"/usr/bin/vim
+}
+
