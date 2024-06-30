@@ -1,0 +1,34 @@
+pkgname=lanxchange-fork
+_pkgname=lanxchange
+pkgver=1.41
+pkgrel=604
+pkgdesc="Configuration-free, cross-platform file transfers for your local network (fork)"
+arch=('any')
+url='https://lanxchange.com'
+license=('GPL3')
+install=lanxchange.install
+depends=('java-runtime>=8' 'bash')
+makedepends=('gendesk')
+conflicts=('lanxchange')
+provides=('lanxchange')
+source=("${_pkgname}-${pkgver}.zip::https://github.com/kj-sh604/LanXchange/releases/download/v${pkgver}/lxc.zip")
+sha256sums=('18fb4e05a8cf858baf1ff3b079be63eb6228424eb5de596f3cc604dbb8fa2102')
+
+package() {
+  install -Dm644 ${_pkgname}.jar "${pkgdir}/opt/${_pkgname}/${_pkgname}-${pkgver}.jar"
+  cp -avR img/ "${pkgdir}/opt/${_pkgname}/"
+  echo "#!/usr/bin/env bash
+  cd /opt/lanxchange
+  exec /usr/bin/java -splash:img/logo.png -jar '/opt/${_pkgname}/${_pkgname}-${pkgver}.jar' "-managed \$\@"" > lanxchange.sh
+  install -Dm755 lanxchange.sh "${pkgdir}/usr/bin/lxcr"
+  gendesk -f -n --pkgname "${_pkgname}" \
+          --pkgdesc "$pkgdesc" \
+          --name "LanXchange" \
+          --comment "$pkgdesc" \
+          --exec lxcr \
+          --categories 'Network;Application' \
+          --icon "${_pkgname}"
+  install -Dm644 "${_pkgname}.desktop" -t "${pkgdir}/usr/share/applications"
+  install -Dm644 img/logo.png "${pkgdir}/usr/share/pixmaps/${_pkgname}.png"
+  chmod -R 777 "${pkgdir}/opt/lanxchange/"
+}
