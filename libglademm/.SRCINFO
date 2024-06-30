@@ -1,0 +1,13 @@
+pkgbase = libglademm
+	pkgdesc = A C++ wrapper for libglade.
+	pkgver = 2.6.7
+	pkgrel = 604
+	url = http://gtkmm.sourceforge.net/
+	arch = x86_64
+	license = LGPL
+	makedepends = pkgconfig
+	depends = libglade
+	depends = gtkmm
+	source = https://download.gnome.org/sources/libglademm/2.6/libglademm-2.6.7.tar.bz2
+
+pkgname = libglademm
