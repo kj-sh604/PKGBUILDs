@@ -1,0 +1,11 @@
+pkgbase = wgetpkg
+	pkgdesc = Download AUR packages with wget
+	pkgver = 0.2.0
+	pkgrel = 2
+	url = https://github.com/kj-sh604/wgetpkg
+	arch = any
+	license = UNLICENSE
+	depends = wget
+	source = wgetpkg-0.2.0.tar.gz::https://github.com/kj-sh604/wgetpkg/archive/refs/tags/0.2.0.tar.gz
+
+pkgname = wgetpkg
