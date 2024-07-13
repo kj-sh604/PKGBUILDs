@@ -4,3 +4,4 @@ src/
 *.tar.zst
 *.tar.gz
 *.tar.xz
+gnome-doc-utils/
