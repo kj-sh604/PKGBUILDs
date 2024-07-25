@@ -8,7 +8,7 @@ license=('UNLICENSE')
 package() {
     install -dm755 "${pkgdir}/usr/bin"
     cat <<EOF > "${pkgdir}/usr/bin/cd"
-#!/bin/sh
+#!/usr/bin/env bash
 builtin cd "\$@"
 EOF
     chmod +x "${pkgdir}/usr/bin/cd"
