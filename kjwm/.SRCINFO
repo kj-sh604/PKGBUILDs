@@ -1,7 +1,7 @@
 pkgbase = kjwm
-	pkgdesc = this is just a renamed awesomeWM build, customized to suit my personal preferences on my system.
-	pkgver = 24.08
-	pkgrel = 1
+	pkgdesc = this is just a renamed awesomeWM build, customized to suit my personal preferences on my system. (tagged release)
+	pkgver = 24.04
+	pkgrel = 18
 	url = https://awesomewm.org
 	arch = i686
 	arch = x86_64
