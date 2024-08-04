@@ -1,0 +1,62 @@
+# Maintainer: kj_sh604 <406hs_jk@proton.me>
+
+pkgname=kjwm
+_pkgname=awesome
+pkgver=24.04
+pkgrel=18
+pkgdesc='this is just a renamed awesomeWM build, customized to suit
+         my personal preferences on my system. (tagged release)'
+_commit='ad0290bc1aac3ec2391aa14784146a53ebf9d1f0'
+arch=('i686' 'x86_64')
+url='https://awesomewm.org'
+license=('GPL2')
+depends=('cairo' 'dbus' 'gdk-pixbuf2' 'libxdg-basedir' 'libxkbcommon-x11'
+         'lua' 'lua-lgi' 'pango' 'startup-notification' 'xcb-util-cursor'
+         'xcb-util-keysyms' 'xcb-util-wm' 'xcb-util-xrm' 'libxfixes')
+makedepends=('asciidoctor' 'cmake' 'docbook-xsl' 'git' 'imagemagick' 'ldoc'
+             'xmlto')
+optdepends=('rlwrap: readline support for awesome-client'
+            'dex: autostart your desktop files'
+            'xcb-util-errors: for pretty-printing of X11 errors'
+            'librsvg: for displaying SVG files without scaling artifacts'
+)
+provides=('notification-daemon' 'awesome')
+conflicts=('awesome')
+backup=('etc/xdg/awesome/rc.lua')
+source=("$_pkgname::git+https://github.com/awesomeWM/awesome.git#commit=$_commit")
+md5sums=('SKIP')
+_LUA_VER=5.4
+
+# Use the following for a "git descriptive" pkgver=
+## pkgver() {
+##   cd $_pkgname
+##   git describe | sed 's/^v//;s/-/./g'
+## }
+
+prepare() {
+  cd "$_pkgname"
+  # Replace deprecated convert command with magick convert
+  # Warning: this may break in the future or when a new _commit is chosen
+  find . -type f -exec sed -i 's/\bconvert\b/magick convert/g' {} +
+}
+
+build() {
+  mkdir -p build
+  cd build
+  cmake ../$_pkgname \
+    -DCMAKE_BUILD_TYPE=RELEASE \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DSYSCONFDIR=/etc \
+    -DLUA_INCLUDE_DIR=/usr/include/lua${_LUA_VER} \
+    -DLUA_LIBRARY=/usr/lib/liblua.so.${_LUA_VER} \
+    -DLUA_EXECUTABLE=/usr/bin/lua${_LUA_VER}
+  make
+}
+
+package() {
+  cd build
+  make DESTDIR="$pkgdir" install
+
+  install -Dm644 "$srcdir"/$_pkgname/awesome.desktop \
+    "$pkgdir/usr/share/xsessions/awesome.desktop"
+}
