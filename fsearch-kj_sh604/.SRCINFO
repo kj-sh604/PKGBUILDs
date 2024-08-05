@@ -1,4 +1,4 @@
-pkgbase = fsearch-fork
+pkgbase = fsearch-kj_sh604
 	pkgdesc = A fast graphical file search utility.
 	pkgver = 0.2.3
 	pkgrel = 1
@@ -17,4 +17,4 @@ pkgbase = fsearch-fork
 	source = fsearch-0.2.3.tar.gz::https://github.com/kj-sh604/fsearch/archive/refs/tags/0.2.3.tar.gz
 	sha256sums = b3c576bf1230da7c374d00bb32d72686b940b4dee80d941495acfdd5437bf117
 
-pkgname = fsearch-fork
+pkgname = fsearch-kj_sh604
