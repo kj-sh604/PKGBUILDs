@@ -1,9 +1,9 @@
 # Maintainer: kj_sh604 <406hs_jk@proton.me>
 
-pkgname=kjwm
+pkgname=awesome-kj_sh604
 _pkgname=awesome
-pkgver=24.04
-pkgrel=18
+pkgver=24.06
+pkgrel=6
 pkgdesc='this is just a renamed awesomeWM build, customized to suit
          my personal preferences on my system. (tagged release)'
 _commit='ad0290bc1aac3ec2391aa14784146a53ebf9d1f0'
@@ -23,7 +23,7 @@ optdepends=('rlwrap: readline support for awesome-client'
 provides=('notification-daemon' 'awesome')
 conflicts=('awesome')
 backup=('etc/xdg/awesome/rc.lua')
-source=("$_pkgname::git+https://github.com/awesomeWM/awesome.git#commit=$_commit")
+source=("$_pkgname::git+https://github.com/kj-sh604/awesome.git#commit=$_commit")
 md5sums=('SKIP')
 _LUA_VER=5.4
 
