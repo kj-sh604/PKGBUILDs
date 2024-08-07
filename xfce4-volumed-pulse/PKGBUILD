@@ -16,6 +16,7 @@ makedepends=('git' 'xfce4-dev-tools')
 optdepends=('xfce4-notifyd: for OSD notifications')
 sha256sums=('a019e3f626b31c0aaa0b807962606645cc0caf7930882b034a5a3a1719858362')
 source=("https://archive.xfce.org/src/apps/$pkgname/$_vmaj/$pkgname-$pkgver.tar.bz2")
+#source=("https://aedrielkylejavier.me/assets/$pkgname/$_vmaj/$pkgname-$pkgver.tar.bz2")
 
 build() {
   cd $pkgname-$pkgver
