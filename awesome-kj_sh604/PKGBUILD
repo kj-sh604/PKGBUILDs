@@ -2,8 +2,8 @@
 
 pkgname=awesome-kj_sh604
 _pkgname=awesome
-pkgver=24.06
-pkgrel=6
+pkgver=24.06.06
+pkgrel=1
 pkgdesc='this is just a renamed awesomeWM build, customized to suit
          my personal preferences on my system. (tagged release)'
 _commit='ad0290bc1aac3ec2391aa14784146a53ebf9d1f0'

@@ -1,7 +1,7 @@
 pkgbase = awesome-kj_sh604
 	pkgdesc = this is just a renamed awesomeWM build, customized to suit my personal preferences on my system. (tagged release)
-	pkgver = 24.06
-	pkgrel = 6
+	pkgver = 24.06.06
+	pkgrel = 1
 	url = https://awesomewm.org
 	arch = i686
 	arch = x86_64
