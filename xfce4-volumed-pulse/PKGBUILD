@@ -2,31 +2,35 @@
 # Contributor: Bernhard Landauer <oberon@manjaro.org>
 
 pkgname=xfce4-volumed-pulse
-_vmaj=0.2
-_vmin=4
-pkgver=$_vmaj.$_vmin
-pkgrel=3
-pkgdesc='A volume keys control daemon for Xfce using pulseaudio'
-arch=('i686' 'x86_64')
-license=('GPL3')
-conflicts=('xfce4-volumed')
-replaces=('xfce4-volumed')
-url="https://gitlab.xfce.org/apps/$pkgname"
+pkgver=0.2.4
+pkgrel=4
+pkgdesc="A volume keys control daemon for Xfce using pulseaudio"
+arch=('x86_64')
+url="https://gitlab.xfce.org/apps/xfce4-volumed-pulse"
+license=('GPL-3.0-only')
 depends=('libnotify' 'pulse-native-provider' 'libkeybinder3' 'xfconf')
 makedepends=('git' 'xfce4-dev-tools')
 optdepends=('xfce4-notifyd: for OSD notifications')
-sha256sums=('a019e3f626b31c0aaa0b807962606645cc0caf7930882b034a5a3a1719858362')
-source=("https://archive.xfce.org/src/apps/$pkgname/$_vmaj/$pkgname-$pkgver.tar.bz2")
+source=("git+https://gitlab.xfce.org/apps/xfce4-volumed-pulse.git#tag=$pkgname-$pkgver")
+sha256sums=('73d38fcf931c850101f0a772889c196c142a77b10e9647b46ebded70d89fac7e')
+
+prepare() {
+  cd $pkgname
+  ./autogen.sh \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --libexecdir=/usr/lib \
+    --localstatedir=/var
+}
 
 build() {
-  cd $pkgname-$pkgver
-  ./configure --prefix=/usr --sysconfdir=/etc \
-              --libexecdir=/usr/lib \
-              --localstatedir=/var
+  cd $pkgname
   make
 }
 
 package() {
-  cd $pkgname-$pkgver
+  cd $pkgname
   make DESTDIR="$pkgdir" install
 }
+
+# vim:set ts=2 sw=2 et:
