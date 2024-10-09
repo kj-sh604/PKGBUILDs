@@ -1,5 +1,5 @@
 pkgname='boomer-kj_sh604'
-pkgver=r294.cc7d943
+pkgver=r294.9666474
 pkgrel=1
 pkgdesc="Zoomer application for Linux."
 arch=('x86_64')

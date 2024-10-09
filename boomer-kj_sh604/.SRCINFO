@@ -1,6 +1,6 @@
 pkgbase = boomer-kj_sh604
 	pkgdesc = Zoomer application for Linux.
-	pkgver = r291.dfd4e1f
+	pkgver = r294.9666474
 	pkgrel = 1
 	url = https://github.com/kj-sh604/boomer
 	arch = x86_64
