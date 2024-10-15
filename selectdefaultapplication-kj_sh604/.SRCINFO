@@ -1,0 +1,19 @@
+pkgbase = selectdefaultapplication-kj_sh604
+	pkgdesc = A very simple application that lets you define default applications on Linux in a sane way
+	pkgver = r72.4e8501d
+	pkgrel = 1
+	url = https://github.com/kj-sh604/selectdefaultapplication
+	arch = i686
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	depends = qt5-base
+	depends = hicolor-icon-theme
+	provides = selectdefaultapplication
+	conflicts = selectdefaultapplication
+	conflicts = selectdefaultapplication-git
+	conflicts = selectdefaultapplication-fork-git
+	source = git+https://github.com/kj-sh604/selectdefaultapplication.git
+	md5sums = SKIP
+
+pkgname = selectdefaultapplication-kj_sh604
