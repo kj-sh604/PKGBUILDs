@@ -2,11 +2,11 @@
 
 pkgname=awesome-kj_sh604
 _pkgname=awesome
-pkgver=24.06.06
+pkgver=24.10.27
 pkgrel=1
 pkgdesc='this is just a renamed awesomeWM build, customized to suit
          my personal preferences on my system. (tagged release)'
-_commit='ad0290bc1aac3ec2391aa14784146a53ebf9d1f0'
+_commit='fcd23a7478b38788e13849f76190e60338ba9fdc'
 arch=('i686' 'x86_64')
 url='https://awesomewm.org'
 license=('GPL2')
@@ -26,19 +26,6 @@ backup=('etc/xdg/awesome/rc.lua')
 source=("$_pkgname::git+https://github.com/kj-sh604/awesome.git#commit=$_commit")
 md5sums=('SKIP')
 _LUA_VER=5.4
-
-# Use the following for a "git descriptive" pkgver=
-## pkgver() {
-##   cd $_pkgname
-##   git describe | sed 's/^v//;s/-/./g'
-## }
-
-prepare() {
-  cd "$_pkgname"
-  # Replace deprecated convert command with magick convert
-  # Warning: this may break in the future or when a new _commit is chosen
-  find . -type f -exec sed -i 's/\bconvert\b/magick convert/g' {} +
-}
 
 build() {
   mkdir -p build
