@@ -2,11 +2,11 @@
 
 pkgname=awesome-kj_sh604
 _pkgname=awesome
-pkgver=24.10.27
-pkgrel=1
+pkgver=24.06.06
+pkgrel=2
 pkgdesc='this is just a renamed awesomeWM build, customized to suit
          my personal preferences on my system. (tagged release)'
-_commit='fcd23a7478b38788e13849f76190e60338ba9fdc'
+_commit='ad0290bc1aac3ec2391aa14784146a53ebf9d1f0'
 arch=('i686' 'x86_64')
 url='https://awesomewm.org'
 license=('GPL2')
