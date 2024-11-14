@@ -1,7 +1,7 @@
 pkgbase = awesome-kj_sh604
 	pkgdesc = this is just a renamed awesomeWM build, customized to suit my personal preferences on my system. (tagged release)
-	pkgver = 24.06.06
-	pkgrel = 2
+	pkgver = 24.10.27
+	pkgrel = 1
 	url = https://awesomewm.org
 	arch = i686
 	arch = x86_64
@@ -35,7 +35,7 @@ pkgbase = awesome-kj_sh604
 	provides = awesome
 	conflicts = awesome
 	backup = etc/xdg/awesome/rc.lua
-	source = awesome::git+https://github.com/kj-sh604/awesome.git#commit=ad0290bc1aac3ec2391aa14784146a53ebf9d1f0
+	source = awesome::git+https://github.com/kj-sh604/awesome.git#commit=fcd23a7478b38788e13849f76190e60338ba9fdc
 	md5sums = SKIP
 
 pkgname = awesome-kj_sh604
