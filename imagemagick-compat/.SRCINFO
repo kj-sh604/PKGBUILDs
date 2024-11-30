@@ -1,5 +1,5 @@
-pkgbase = imagemagick-compat
-	pkgdesc = An image viewing/manipulation program with convert command wrapper
+pkgbase = imagemagick
+	pkgdesc = An image viewing/manipulation program with "convert" compatibility wrapper script
 	pkgver = 7.1.1.41
 	pkgrel = 1
 	url = https://www.imagemagick.org/
@@ -61,8 +61,7 @@ pkgbase = imagemagick-compat
 	optdepends = openjpeg2: JPEG2000 support
 	optdepends = djvulibre: DJVU support
 	optdepends = pango: Text rendering
-	provides = imagemagick
-	conflicts = imagemagick
+	provides = libmagick
 	replaces = imagemagick-doc
 	options = !emptydirs
 	options = libtool
@@ -79,4 +78,4 @@ pkgbase = imagemagick-compat
 	source = https://imagemagick.org/archive/ImageMagick-7.1.1-41.tar.xz
 	sha256sums = 3de1a21654918c96f36de3d080dd8cf3f3d41515267db4c7a9e4b64e9dc646d8
 
-pkgname = imagemagick-compat
+pkgname = imagemagick
