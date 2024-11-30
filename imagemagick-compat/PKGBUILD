@@ -128,7 +128,7 @@ package() {
 
   # Add a wrapper script for "convert" to use "magick convert"
   install -Dm755 /dev/stdin "$pkgdir/usr/bin/convert" <<END
-#!/bin/bash
+#!/bin/sh
 exec magick "\$@"
 END
 
