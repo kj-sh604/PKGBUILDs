@@ -2,12 +2,16 @@
 
 pkgname=xcursor-vide
 pkgver=1
-pkgrel=1
+pkgrel=2
 pkgdesc="Blank cursor theme to force the usage of the fallback X11 cursors (mIniMUHliSt uhuh)."
 arch=('any')
 install=VideCursors.install
+depends=('adwaita-cursors' 'adwaita-icon-theme')
 
 package() {
   mkdir -p "${pkgdir}/usr/share/icons/VideCursors/cursors"
   touch "${pkgdir}/usr/share/icons/VideCursors/cursors/.empty"
+  # symlink zoom-in and zoom-out cursors (this does not exist as fallback X11 cursors)
+  ln -s "/usr/share/icons/Adwaita/cursors/zoom-in" "${pkgdir}/usr/share/icons/VideCursors/cursors/zoom-in"
+  ln -s "/usr/share/icons/Adwaita/cursors/zoom-out" "${pkgdir}/usr/share/icons/VideCursors/cursors/zoom-out"
 }
