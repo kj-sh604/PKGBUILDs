@@ -1,0 +1,8 @@
+pkgbase = xcursor-vide
+	pkgdesc = Blank cursor theme to force the usage of the fallback X11 cursors (mIniMUHliSt uhuh).
+	pkgver = 1
+	pkgrel = 1
+	install = VideCursors.install
+	arch = any
+
+pkgname = xcursor-vide

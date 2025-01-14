@@ -1,0 +1,19 @@
+post_install() {
+  echo "-------"
+  echo "Updating Default Cursor Theme"
+  echo "-------"
+  sed 's/Inherits=.*/Inherits=VideCursors/' /usr/share/icons/default/index.theme > /usr/share/icons/default/index.theme.tmp
+  mv /usr/share/icons/default/index.theme /usr/share/icons/default/index.theme.DO_NOT_DELETE.bak
+  mv /usr/share/icons/default/index.theme.tmp /usr/share/icons/default/index.theme
+}
+
+post_upgrade() {
+  post_install
+}
+
+post_remove() {
+  echo "-------"
+  echo "Reverting Default Cursor Theme"
+  echo "-------"
+  mv /usr/share/icons/default/index.theme.DO_NOT_DELETE.bak /usr/share/icons/default/index.theme
+}

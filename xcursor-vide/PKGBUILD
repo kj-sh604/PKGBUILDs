@@ -1,0 +1,13 @@
+# Maintainer: kj_sh604 <406hs_jk@proton.me>
+
+pkgname=xcursor-vide
+pkgver=1
+pkgrel=1
+pkgdesc="Blank cursor theme to force the usage of the fallback X11 cursors (mIniMUHliSt uhuh)."
+arch=('any')
+install=VideCursors.install
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/icons/VideCursors/cursors"
+  touch "${pkgdir}/usr/share/icons/VideCursors/cursors/.empty"
+}
