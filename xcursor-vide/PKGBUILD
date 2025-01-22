@@ -2,14 +2,14 @@
 
 pkgname=xcursor-vide
 pkgver=1
-pkgrel=3
+pkgrel=4
 pkgdesc="Blank cursor theme to force the usage of the fallback X11 cursors (mIniMUHliSt uhuh)."
 arch=('any')
 install=VideCursors.install
 license=('0BSD')
 source=("zoom-in" "zoom-out")
-sha256sums=('9a202ac95ee7663daf868fd8ae193f788efed30205b77eaf505c9b7e364a565e'
-            '7c4f44d2c376cb82c4baa0e5db0d1d37827fc661144a31429bb229b8b9248c64')
+sha256sums=('0d5329c74d25b9855636a14f9f97f224aeeec4df6e0079c82050d3c68431eedf'
+            '3b46fc58d4a4bfde5bb689bad4dcb8522145a6bc6eb74b2b0b3dd6dafd20f7fd')
 
 package() {
   mkdir -p "${pkgdir}/usr/share/icons/VideCursors/cursors"
