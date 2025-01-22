@@ -1,10 +1,13 @@
 pkgbase = xcursor-vide
 	pkgdesc = Blank cursor theme to force the usage of the fallback X11 cursors (mIniMUHliSt uhuh).
 	pkgver = 1
-	pkgrel = 2
+	pkgrel = 3
 	install = VideCursors.install
 	arch = any
-	depends = adwaita-cursors
-	depends = adwaita-icon-theme
+	license = 0BSD
+	source = zoom-in
+	source = zoom-out
+	sha256sums = 9a202ac95ee7663daf868fd8ae193f788efed30205b77eaf505c9b7e364a565e
+	sha256sums = 7c4f44d2c376cb82c4baa0e5db0d1d37827fc661144a31429bb229b8b9248c64
 
 pkgname = xcursor-vide
