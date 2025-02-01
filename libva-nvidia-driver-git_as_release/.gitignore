@@ -1,0 +1,4 @@
+libva-nvidia-driver/
+pkg/
+src/
+*.tar.*
