@@ -1,13 +1,13 @@
 pkgbase = xcursor-vide
 	pkgdesc = Blank cursor theme to force the usage of the fallback X11 cursors (mIniMUHliSt uhuh).
 	pkgver = 1
-	pkgrel = 4
+	pkgrel = 5
 	install = VideCursors.install
 	arch = any
 	license = 0BSD
 	source = zoom-in
 	source = zoom-out
-	sha256sums = 0d5329c74d25b9855636a14f9f97f224aeeec4df6e0079c82050d3c68431eedf
-	sha256sums = 3b46fc58d4a4bfde5bb689bad4dcb8522145a6bc6eb74b2b0b3dd6dafd20f7fd
+	sha256sums = efe27aed523ec4a03972802469015a19866641218d65653c93b6bc5afa26bd9a
+	sha256sums = dc1f398a2406a6cab09e83b6711581ea52410ac837b2880427c489e1cd57dbd4
 
 pkgname = xcursor-vide
