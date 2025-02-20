@@ -8,8 +8,8 @@ arch=('any')
 install=VideCursors.install
 license=('0BSD')
 source=("zoom-in" "zoom-out")
-sha256sums=('efe27aed523ec4a03972802469015a19866641218d65653c93b6bc5afa26bd9a'
-            'dc1f398a2406a6cab09e83b6711581ea52410ac837b2880427c489e1cd57dbd4')
+sha256sums=('f0facb7caef3ecae771fbfe9c983cd6f8ca886b921db5f050ce40e6bf9470644'
+            '839ec6f361b756512cdd1892ae76f32691311250b2d578d95cdf9c82db84d59b')
 
 package() {
   mkdir -p "${pkgdir}/usr/share/icons/VideCursors/cursors"
