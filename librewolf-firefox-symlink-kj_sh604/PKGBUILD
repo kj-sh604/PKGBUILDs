@@ -2,7 +2,7 @@
 
 pkgname=librewolf-firefox-symlink-kj_sh604
 pkgver=1
-pkgrel=1
+pkgrel=2
 pkgdesc="A symlink for using librewolf as a firefox dropin replacement"
 arch=('any')
 url="https://librewolf.net/"
@@ -11,7 +11,7 @@ depends=('librewolf')
 provides=('firefox')
 conflicts=('firefox' 'librewolf-firefox-shim')
 source=('firefox.desktop')
-sha256sums=('e0c012554ac93cc2e3e2fed7bc8515734261ff999d2b0ad6b2a148b406863467')
+sha256sums=('6f1d5ec0d3f7037ad211bb412668f8a7496947cd2ff076dc137a64ea06ca51c6')
 
 package() {
   install -d "$pkgdir"/usr/bin
