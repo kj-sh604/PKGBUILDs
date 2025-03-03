@@ -2,7 +2,7 @@
 
 pkgname=librewolf-firefox-symlink-kj_sh604
 pkgver=1
-pkgrel=2
+pkgrel=1
 pkgdesc="A symlink for using librewolf as a firefox dropin replacement"
 arch=('any')
 url="https://librewolf.net/"
