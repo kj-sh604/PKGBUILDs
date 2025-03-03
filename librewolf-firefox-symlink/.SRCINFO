@@ -1,0 +1,13 @@
+pkgbase = librewolf-firefox-symlink
+	pkgdesc = A symlink for using librewolf as a firefox dropin replacement
+	pkgver = 1
+	pkgrel = 1
+	url = https://librewolf.net/
+	arch = any
+	license = The Unlicense
+	depends = librewolf
+	provides = firefox
+	conflicts = firefox
+	conflicts = librewolf-firefox-shim
+
+pkgname = librewolf-firefox-symlink
