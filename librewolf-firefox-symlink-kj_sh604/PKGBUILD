@@ -1,6 +1,6 @@
 # Maintainer: kj_sh604 <406hs_jk@proton.me>
 
-pkgname=librewolf-firefox-symlink
+pkgname=librewolf-firefox-symlink-kj_sh604
 pkgver=1
 pkgrel=2
 pkgdesc="A symlink for using librewolf as a firefox dropin replacement"

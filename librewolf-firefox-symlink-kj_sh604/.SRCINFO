@@ -1,4 +1,4 @@
-pkgbase = librewolf-firefox-symlink
+pkgbase = librewolf-firefox-symlink-kj_sh604
 	pkgdesc = A symlink for using librewolf as a firefox dropin replacement
 	pkgver = 1
 	pkgrel = 2
@@ -12,4 +12,4 @@ pkgbase = librewolf-firefox-symlink
 	source = firefox.desktop
 	sha256sums = e0c012554ac93cc2e3e2fed7bc8515734261ff999d2b0ad6b2a148b406863467
 
-pkgname = librewolf-firefox-symlink
+pkgname = librewolf-firefox-symlink-kj_sh604
