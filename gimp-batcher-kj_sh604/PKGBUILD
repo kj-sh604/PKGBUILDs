@@ -1,0 +1,25 @@
+# Maintainer: kj_sh604 <406hs_jk@proton.me>
+
+pkgname=gimp-batcher-kj_sh604
+pkgver=1.0_RC4
+pkgrel=1
+pkgdesc="A batch processing plugin for the new generation of GIMP"
+arch=('i686' 'x86_64')
+url="https://github.com/kamilburda/batcher"
+license=('BSD')
+depends=('gimp>=3.0' 'python>=3.7' 'python-gobject')
+makedepends=('unzip')
+# convert pkgver: replace underscores with hyphens for url usage
+_sourcever=${pkgver//_/-}
+source=("https://github.com/kamilburda/batcher/releases/download/${_sourcever}/batcher-${_sourcever}.zip")
+sha256sums=('d214d498637a6632a0e5d95d3c6caea8aec4009a8ad7b624619d0d021c3200fc')
+
+prepare() {
+  cd "$srcdir"
+  unzip "batcher-${_sourcever}.zip" -d batcher
+}
+
+package() {
+  install -d "$pkgdir/usr/lib/gimp/3.0/plug-ins"
+  cp -r "$srcdir/batcher/batcher" "$pkgdir/usr/lib/gimp/3.0/plug-ins/"
+}
