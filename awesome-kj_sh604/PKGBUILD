@@ -3,7 +3,7 @@
 pkgname=awesome-kj_sh604
 _pkgname=awesome
 pkgver=24.11.19
-pkgrel=1
+pkgrel=2
 pkgdesc='this is just a renamed awesomeWM build, customized to suit
          my personal preferences on my system. (tagged release)'
 _commit='0f950cbb625175134b45ea65acdf29b2cbe8c456'
@@ -24,7 +24,7 @@ provides=('notification-daemon' 'awesome')
 conflicts=('awesome')
 backup=('etc/xdg/awesome/rc.lua')
 source=("$_pkgname::git+https://github.com/kj-sh604/awesome.git#commit=$_commit")
-md5sums=('SKIP')
+md5sums=('a4882fe2e39442f9bbc3dd91c6785ef9')
 _LUA_VER=5.4
 
 build() {
@@ -33,10 +33,12 @@ build() {
   cmake ../$_pkgname \
     -DCMAKE_BUILD_TYPE=RELEASE \
     -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.30.5 \
     -DSYSCONFDIR=/etc \
     -DLUA_INCLUDE_DIR=/usr/include/lua${_LUA_VER} \
     -DLUA_LIBRARY=/usr/lib/liblua.so.${_LUA_VER} \
-    -DLUA_EXECUTABLE=/usr/bin/lua${_LUA_VER}
+    -DLUA_EXECUTABLE=/usr/bin/lua${_LUA_VER} \
+    -Wno-dev
   make
 }
 
