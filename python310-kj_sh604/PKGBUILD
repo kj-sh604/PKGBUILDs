@@ -19,6 +19,7 @@ optdepends=('python-setuptools'
 source=("https://www.python.org/ftp/python/${pkgver%rc*}/Python-${pkgver}.tar.xz")
 sha256sums=('4c68050f049d1b4ac5aadd0df5f27941c0350d2a9e7ab0907ee5eb5225d9d6b0')
 validpgpkeys=('A035C8C19219BA821ECEA86B64E628F8D684696D') # Pablo Galindo Salgado <pablogsal@gmail.com>
+conflicts=("python310")
 provides=("python=$pkgver")
 
 prepare() {
