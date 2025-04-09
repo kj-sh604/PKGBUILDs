@@ -1,6 +1,6 @@
 pkgbase = python310-kj_sh604
 	pkgdesc = Next generation of the python high-level scripting language, version 3.10
-	pkgver = 3.10.16
+	pkgver = 3.10.17
 	pkgrel = 1
 	url = https://www.python.org/
 	arch = x86_64
@@ -25,8 +25,8 @@ pkgbase = python310-kj_sh604
 	optdepends = mpdecimal: for decimal
 	optdepends = xz: for lzma
 	optdepends = tk: for tkinter
-	provides = python=3.10.16
-	source = https://www.python.org/ftp/python/3.10.16/Python-3.10.16.tar.xz
+	provides = python=3.10.17
+	source = https://www.python.org/ftp/python/3.10.17/Python-3.10.17.tar.xz
 	validpgpkeys = A035C8C19219BA821ECEA86B64E628F8D684696D
 	sha256sums = bfb249609990220491a1b92850a07135ed0831e41738cf681d63cf01b2a8fbd1
 
