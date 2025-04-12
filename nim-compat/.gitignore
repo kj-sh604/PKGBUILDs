@@ -1,0 +1,5 @@
+pkg/
+src/
+csources_*/
+*.toml
+*.tar*
