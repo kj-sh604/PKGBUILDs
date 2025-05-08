@@ -1,25 +1,31 @@
-# Maintainer: Brian Bidulock <bidulock@openss7.org>
+# Maintainer: Patrick Northon <northon_patrick3@yahoo.ca>
+# Contributor: Brian Bidulock <bidulock@openss7.org>
 # Contributor: Jan de Groot <jgc@archlinux.org>
 
 pkgname=gnome-doc-utils
-pkgver=0.21
-pkgrel=604
+pkgver=0.20.10+16+gc03cc09
+pkgrel=4
 pkgdesc="Documentation utilities for Gnome"
 arch=('any')
 license=('GPL' 'LGPL')
-depends=(docbook-xml rarian)
+depends=(docbook-xml rarian python2-libxml2)
 makedepends=(intltool gnome-common git)
 url="https://www.gnome.org"
-source=("git+https://github.com/kj-sh604/gnome-doc-utils.git")
-# pkgver() {
-#   cd $pkgname
-#   git describe --tags | sed 's/-/+/g'
-# }
+_commit=c03cc0963996934e03587af3e351c2bb9dab6b2a  # master
+source=("git+https://git.gnome.org/browse/gnome-doc-utils#commit=$_commit")
+source=("git+https://gitlab.gnome.org/Archive/gnome-doc-utils.git#commit=$_commit")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd $pkgname
+  git describe --tags | sed 's/-/+/g'
+}
+
 prepare() {
   cd $pkgname
   rm -f m4/glib-gettext.m4
+  sed -i 's/SUBDIRS = .*/SUBDIRS = /' 'doc/Makefile.am'
   NOCONFIGURE=1 ./autogen.sh
-  sed -i 's/SUBDIRS = .*/SUBDIRS = /' doc/Makefile.am
 }
 
 build() {
@@ -34,4 +40,3 @@ package() {
   cd "$pkgname"
   make DESTDIR="$pkgdir" install
 }
-sha256sums=('SKIP')
