@@ -15,6 +15,6 @@ pkgbase = gnome-doc-utils-kj_sh604
 	provides = gnome-doc-utils
 	conflicts = gnome-doc-utils
 	source = git+https://gitlab.gnome.org/Archive/gnome-doc-utils.git#commit=c03cc0963996934e03587af3e351c2bb9dab6b2a
-	sha256sums = SKIP
+	sha256sums = 91886a569a503d0b827f278656872036f7c6e551087603003fdab14615a1dbbd
 
 pkgname = gnome-doc-utils-kj_sh604
