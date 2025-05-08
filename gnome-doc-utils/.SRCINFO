@@ -12,5 +12,6 @@ pkgbase = gnome-doc-utils
 	depends = docbook-xml
 	depends = rarian
 	source = git+https://github.com/kj-sh604/gnome-doc-utils.git
+	sha256sums = SKIP
 
 pkgname = gnome-doc-utils
