@@ -14,7 +14,9 @@ pkgbase = gnome-doc-utils-kj_sh604
 	depends = python2-libxml2
 	provides = gnome-doc-utils
 	conflicts = gnome-doc-utils
-	source = git+https://gitlab.gnome.org/Archive/gnome-doc-utils.git#commit=c03cc0963996934e03587af3e351c2bb9dab6b2a
+	source = git+https://git.gnome.org/browse/gnome-doc-utils#commit=c03cc0963996934e03587af3e351c2bb9dab6b2a
+	source = https://archive.org/download/archlinux_pkg_gnome-doc-utils/gnome-doc-utils-0.20.10+16+gc03cc09-2-any.pkg.tar.xz
 	sha256sums = 91886a569a503d0b827f278656872036f7c6e551087603003fdab14615a1dbbd
+	sha256sums = e03a674a4520b9f0e87e288cff938b66305de6976fd0662ac12dc42f3c8ee3ee
 
 pkgname = gnome-doc-utils-kj_sh604
