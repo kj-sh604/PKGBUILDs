@@ -1,4 +1,4 @@
-pkgbase = gnome-doc-utils
+pkgbase = gnome-doc-utils-kj_sh604
 	pkgdesc = Documentation utilities for Gnome
 	pkgver = 0.20.10+16+gc03cc09
 	pkgrel = 4
@@ -12,7 +12,9 @@ pkgbase = gnome-doc-utils
 	depends = docbook-xml
 	depends = rarian
 	depends = python2-libxml2
+	provides = gnome-doc-utils
+	conflicts = gnome-doc-utils
 	source = git+https://gitlab.gnome.org/Archive/gnome-doc-utils.git#commit=c03cc0963996934e03587af3e351c2bb9dab6b2a
 	sha256sums = SKIP
 
-pkgname = gnome-doc-utils
+pkgname = gnome-doc-utils-kj_sh604
