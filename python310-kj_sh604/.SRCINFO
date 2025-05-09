@@ -26,6 +26,7 @@ pkgbase = python310-kj_sh604
 	optdepends = xz: for lzma
 	optdepends = tk: for tkinter
 	provides = python=3.10.17
+	provides = python310
 	conflicts = python310
 	source = https://www.python.org/ftp/python/3.10.17/Python-3.10.17.tar.xz
 	validpgpkeys = A035C8C19219BA821ECEA86B64E628F8D684696D
