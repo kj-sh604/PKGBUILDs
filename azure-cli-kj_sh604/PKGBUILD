@@ -34,7 +34,7 @@ package() {
   source "$pkgdir/opt/azure-cli/bin/activate"
   export PYTHONDONTWRITEBYTECODE=1
   export PYTHONUNBUFFERED=1
-  pip install --upgrade pip wheel
+  pip install --upgrade --no-cache-dir --no-compile pip wheel
   scripts/install_full.sh
   install -vDm755 "$srcdir/az" "$pkgdir/usr/bin/az"
   install -vDm644 az.completion "$pkgdir/usr/share/bash-completion/completions/az"
