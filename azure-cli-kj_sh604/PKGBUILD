@@ -1,0 +1,42 @@
+_pkgname=azure-cli
+pkgname=azure-cli-kj_sh604
+pkgver=2.72.0
+pkgrel=1
+pkgdesc="Command-line tools for Microsoft Azure (uses python3.10)"
+# Microsoft has not updated `az` to support python 3.12 or 3.13 yet: https://learn.microsoft.com/en-us/cli/azure/azure-cli-support-lifecycle?view=azure-cli-latest#python-dependency 
+arch=('any')
+url="https://github.com/Azure/azure-cli"
+license=('MIT')
+conflicts=("azure-cli")
+provides=("azure-cli")
+depends=(
+  "gcc-libs"
+  "glibc"
+  "libsecret"
+  "python310"
+)
+makedepends=("git")
+options=('!debug' '!strip')
+source=("git+https://github.com/Azure/azure-cli.git#tag=azure-cli-${pkgver}"
+        "az")
+sha256sums=('3ab4219fe2564077a094d11bb0db4068692a96cf93e1300bfe7e86e24a22b995'
+            '990f70efec828c1e1f3f57748fc6e40f9705f2223dc96683e8e29d118daac116')
+
+prepare() {
+  cd azure-cli
+}
+
+package() {
+  cd azure-cli
+  mkdir -v "$pkgdir/opt"
+  python3.10 -m venv "$pkgdir/opt/azure-cli"
+  # shellcheck disable=SC1091
+  source "$pkgdir/opt/azure-cli/bin/activate"
+  export PYTHONDONTWRITEBYTECODE=1
+  export PYTHONUNBUFFERED=1
+  pip install --upgrade pip wheel
+  scripts/install_full.sh
+  install -vDm755 "$srcdir/az" "$pkgdir/usr/bin/az"
+  install -vDm644 az.completion "$pkgdir/usr/share/bash-completion/completions/az"
+  install -vDm644 -t "$pkgdir/usr/share/licenses/$_pkgname" LICENSE
+}
