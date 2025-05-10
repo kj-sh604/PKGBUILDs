@@ -1,3 +1,4 @@
 azure-cli/
 pkg/
 src/
+*.tar*
