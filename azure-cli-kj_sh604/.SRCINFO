@@ -1,5 +1,5 @@
 pkgbase = azure-cli-kj_sh604
-	pkgdesc = Command-line tools for Microsoft Azure (uses python3.10)
+	pkgdesc = Command-line tools for Microsoft Azure (uses python3.11)
 	pkgver = 2.72.0
 	pkgrel = 1
 	url = https://github.com/Azure/azure-cli
@@ -9,7 +9,7 @@ pkgbase = azure-cli-kj_sh604
 	depends = gcc-libs
 	depends = glibc
 	depends = libsecret
-	depends = python310
+	depends = python311
 	provides = azure-cli
 	conflicts = azure-cli
 	options = !debug
