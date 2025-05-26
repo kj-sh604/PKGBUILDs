@@ -23,9 +23,9 @@ sha256sums=('e8bb26ad0293f9b5a1fc43fb42ba970e312c66ce92c1b0b16713d7500db251bf'
 
 prepare() {
   cd coreutils-$_uuver
-  sed 's|"bin"|"builduser"|g' -i tests/by-util/test_{chgrp,chown}.rs
-  # disable selinux in Makefile, upstream seems broken in parameter parsing
-  # SELINUX_ENABLE=0 should not enable SELINUX but fails
+  # the following is derived from the latest uutils-coreutils changes from Tobias Powalowski:
+    # disable selinux in Makefile, upstream seems broken in parameter parsing
+    # SELINUX_ENABLE=0 should not enable SELINUX but fails
   patch -Np1 -i ../../disable_selinux.patch
 }
 
