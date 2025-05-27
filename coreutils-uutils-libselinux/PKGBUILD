@@ -39,7 +39,7 @@ sha256sums=('55c528f2b53c1b30cb704550131a806e84721c87b3707b588a961a6c97f110d8'
  prepare() {
    cd ${pkgname%-uutils-libselinux}-${pkgver}
   # patch SELINUX_PROGS to include stty
-  patch -Np1 -i ../../0001-update-selinux-progs.patch
+  patch -Np1 -i $srcdir/0001-update-selinux-progs.patch
 }
 
 package() {
