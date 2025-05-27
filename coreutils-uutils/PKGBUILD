@@ -4,7 +4,7 @@ pkgname=coreutils-uutils
 pkgver=0.1.0
 pkgrel=2
 pkgdesc='(warning: use at own risk) Cross-platform Rust rewrite of the GNU
-coreutils installed as system core utilities. This package does NOT include
+coreutils installed as system core utilities. This package does NOT build
 chcon, runcon, and stty'
 arch=('x86_64')
 license=('GPL3' 'MIT')
