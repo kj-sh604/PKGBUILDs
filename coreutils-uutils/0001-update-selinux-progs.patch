@@ -1,0 +1,12 @@
+--- a/GNUmakefile
++++ b/GNUmakefile
+@@ -177,7 +177,8 @@
+ 
+ SELINUX_PROGS := \
+ 	chcon \
+-	runcon
++	runcon \
++	stty
+ 
+ ifneq ($(OS),Windows_NT)
+ 	PROGS := $(PROGS) $(UNIX_PROGS)
