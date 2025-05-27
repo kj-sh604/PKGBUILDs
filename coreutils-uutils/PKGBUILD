@@ -7,8 +7,16 @@ pkgdesc='(warning: use at own risk) Cross-platform Rust rewrite of the GNU coreu
 arch=('x86_64')
 license=('GPL3' 'MIT')
 url='https://github.com/uutils/coreutils'
-conflicts=('coreutils' 'b3sum' 'sha3sum')
-provides=('coreutils' 'b3sum' 'sha3sum')
+conflicts=(
+  coreutils
+  b3sum
+  sha3sum
+)
+provides=(
+  coreutils
+  b3sum
+  sha3sum
+)
 depends=(
   gcc-libs
   glibc
@@ -26,7 +34,7 @@ sha256sums=('55c528f2b53c1b30cb704550131a806e84721c87b3707b588a961a6c97f110d8'
             '302614165d99f04600627222ddad0444a0144fcad6a1ff59ad43fb0b3162060e')
 
 prepare() {
-   cd $pkgname%-uutils}-${pkgver}
+   cd ${pkgname%-uutils}-${pkgver}
   # the following is derived from the latest uutils-coreutils changes from Tobias Powalowski:
     # disable selinux in Makefile, upstream seems broken in parameter parsing
     # SELINUX_ENABLE=0 should not enable SELINUX but fails

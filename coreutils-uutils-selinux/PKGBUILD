@@ -7,8 +7,16 @@ pkgdesc='(warning: use at own risk) Cross-platform Rust rewrite of the GNU coreu
 arch=('x86_64')
 license=('GPL3' 'MIT')
 url='https://github.com/uutils/coreutils'
-conflicts=('coreutils' 'b3sum' 'sha3sum')
-provides=('coreutils' 'b3sum' 'sha3sum')
+conflicts=(
+  coreutils
+  b3sum
+  sha3sum
+)
+provides=(
+  coreutils
+  b3sum
+  sha3sum
+)
 depends=(
   gcc-libs
   glibc
