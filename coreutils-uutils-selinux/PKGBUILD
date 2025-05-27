@@ -1,0 +1,71 @@
+# Maintainer: kj_sh604 <406hs_jk@proton.me>
+
+pkgname=coreutils-uutils-selinux
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='(warning: use at own risk) Cross-platform Rust rewrite of the GNU coreutils being used as actual system coreutils'
+arch=('x86_64')
+license=('GPL3' 'MIT')
+url='https://github.com/uutils/coreutils'
+conflicts=('coreutils' 'b3sum' 'sha3sum')
+provides=('coreutils' 'b3sum' 'sha3sum')
+depends=(
+  gcc-libs
+  glibc
+  libselinux
+  oniguruma
+)
+makedepends=(
+  cargo
+  clang
+  python-sphinx
+  rust
+)
+source=("uutils-coreutils-$pkgver.tar.gz::$url/archive/$pkgver.tar.gz"
+         0001-update-selinux-progs.patch)
+sha256sums=('55c528f2b53c1b30cb704550131a806e84721c87b3707b588a961a6c97f110d8'
+            'd8290988c9c8275e2087f1a63d63c420c88ebcf7c50aed0ef53d9dcd46517b36')
+
+ prepare() {
+   cd ${pkgname%-uutils-selinux}-${pkgver}
+  # patch SELINUX_PROGS to include stty
+  patch -Np1 -i ../../0001-update-selinux-progs.patch
+}
+
+package() {
+  cd ${pkgname%-uutils-selinux}-${pkgver}
+  export RUSTONIG_DYNAMIC_LIBONIG=1
+  make install \
+      USE=selinux \
+      DESTDIR="$pkgdir" \
+      PREFIX=/usr \
+      MANDIR=/share/man/man1 \
+      PROG_PREFIX= \
+      PROFILE=release \
+      MULTICALL=y
+  # add libstdbuf.so
+  mkdir -p $pkgdir/usr/lib/coreutils
+  cd $srcdir && cd ${pkgname%-uutils-selinux}-${pkgver}/target/release/deps
+  mv liblibstdbuf.so $pkgdir/usr/lib/coreutils/libstdbuf.so
+  # clean conflicts (archlinux ships these in other apps)
+  cd $pkgdir/usr/bin
+  rm groups hostname install kill more uptime
+  # symlink missing binaries
+  if [ -f "coreutils" ]; then
+    local binaries=(
+      "b2sum" "b3sum" "install" "md5sum" "sha1sum" "sha224sum" "sha256sum"
+      "sha3-224sum" "sha3-256sum" "sha3-384sum" "sha3-512sum" "sha384sum"
+      "sha3sum" "sha512sum" "shake128sum" "shake256sum"
+    )
+    for bin in "${binaries[@]}"; do
+      ln -s coreutils "$bin" || echo "warning: failed to create symlink for $bin"
+    done
+  else
+    echo "coreutils binary not found, skipping symlink creation."
+  fi
+  # additional cleanup
+  rm $pkgdir/usr/share/bash-completion/completions/*
+  rm $pkgdir/usr/share/man/man1/{groups.1,hostname.1,install.1,kill.1,more.1,uptime.1}
+}
+
+# vim: ts=2 sw=2 et:
