@@ -1,5 +1,5 @@
 pkgbase = coreutils-uutils
-	pkgdesc = (warning: use at own risk) Cross-platform Rust rewrite of the GNU coreutils installed as system core utilities. This package does NOT build chcon, runcon, and stty
+	pkgdesc = (warning: use at own risk) Cross-platform Rust rewrite of the GNU coreutils installed as system core utilities. This PKGBUID does NOT build chcon and runcon
 	pkgver = 0.1.0
 	pkgrel = 3
 	url = https://github.com/uutils/coreutils
@@ -21,6 +21,7 @@ pkgbase = coreutils-uutils
 	conflicts = sha3sum
 	source = uutils-coreutils-0.1.0.tar.gz::https://github.com/uutils/coreutils/archive/0.1.0.tar.gz
 	source = disable_selinux.patch
+	source = build-stty.patch
 	sha256sums = 55c528f2b53c1b30cb704550131a806e84721c87b3707b588a961a6c97f110d8
 	sha256sums = 302614165d99f04600627222ddad0444a0144fcad6a1ff59ad43fb0b3162060e
 

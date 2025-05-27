@@ -4,8 +4,8 @@ pkgname=coreutils-uutils
 pkgver=0.1.0
 pkgrel=3
 pkgdesc='(warning: use at own risk) Cross-platform Rust rewrite of the GNU
-coreutils installed as system core utilities. This package does NOT build
-chcon, runcon, and stty'
+coreutils installed as system core utilities. This PKGBUID does NOT build
+chcon and runcon'
 arch=('x86_64')
 license=('GPL3' 'MIT')
 url='https://github.com/uutils/coreutils'
@@ -31,16 +31,16 @@ makedepends=(
   rust
 )
 source=("uutils-coreutils-$pkgver.tar.gz::$url/archive/$pkgver.tar.gz"
-         disable_selinux.patch)
+         disable_selinux.patch
+         build-stty.patch)
 sha256sums=('55c528f2b53c1b30cb704550131a806e84721c87b3707b588a961a6c97f110d8'
             '302614165d99f04600627222ddad0444a0144fcad6a1ff59ad43fb0b3162060e')
 
 prepare() {
-   cd ${pkgname%-uutils}-${pkgver}
-  # the following is derived from the latest uutils-coreutils changes from Tobias Powalowski:
-    # disable selinux in Makefile, upstream seems broken in parameter parsing
-    # SELINUX_ENABLE=0 should not enable SELINUX but fails
-  patch -Np1 -i ../../disable_selinux.patch
+  cd ${pkgname%-uutils}-${pkgver}
+  patch -Np1 -i $srcdir/disable_selinux.patch
+  patch -Np1 -i $srcdir/build-stty.patch
+
 }
 
 package() {
