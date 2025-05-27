@@ -1,7 +1,7 @@
 pkgbase = coreutils-uutils
 	pkgdesc = (warning: use at own risk) Cross-platform Rust rewrite of the GNU coreutils installed as system core utilities. This package does NOT build chcon, runcon, and stty
 	pkgver = 0.1.0
-	pkgrel = 2
+	pkgrel = 3
 	url = https://github.com/uutils/coreutils
 	arch = x86_64
 	license = GPL3
