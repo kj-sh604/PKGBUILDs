@@ -1,5 +1,5 @@
 pkgbase = coreutils-uutils-selinux
-	pkgdesc = (warning: use at own risk) Cross-platform Rust rewrite of the GNU coreutils being used as actual system coreutils
+	pkgdesc = (warning: use at own risk) Cross-platform Rust rewrite of the GNU coreutils installed as system core utilities. Built with libselinux to include chcon, runcon, and stty
 	pkgver = 0.1.0
 	pkgrel = 1
 	url = https://github.com/uutils/coreutils

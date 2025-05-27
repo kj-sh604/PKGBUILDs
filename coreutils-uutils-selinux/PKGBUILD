@@ -3,7 +3,7 @@
 pkgname=coreutils-uutils-selinux
 pkgver=0.1.0
 pkgrel=1
-pkgdesc='(warning: use at own risk) Cross-platform Rust rewrite of the GNU coreutils being used as actual system coreutils'
+pkgdesc='(warning: use at own risk) Cross-platform Rust rewrite of the GNU coreutils installed as system core utilities. Built with libselinux to include chcon, runcon, and stty'
 arch=('x86_64')
 license=('GPL3' 'MIT')
 url='https://github.com/uutils/coreutils'
