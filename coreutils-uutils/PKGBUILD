@@ -12,12 +12,12 @@ provides=('coreutils' 'b3sum' 'sha3sum')
 depends=(
   gcc-libs
   glibc
+  libselinux
   oniguruma
 )
 makedepends=(
   cargo
   clang
-  libselinux
   python-sphinx
   rust
 )
