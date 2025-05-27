@@ -79,10 +79,10 @@ package() {
 
   # create dummy shell scripts for chcon and runcon
   install -m 755 <(echo "#!/bin/sh
-echo \"error: chcon not built with coreutils-uutils package\"
+echo \"warning: chcon is no longer built with the coreutils-uutils package\"
 exit 1") $pkgdir/usr/bin/chcon
   install -m 755 <(echo "#!/bin/sh
-echo \"error: runcon not built with coreutils-uutils package\"
+echo \"warning: runcon is no longer built with the coreutils-uutils package\"
 exit 1") $pkgdir/usr/bin/runcon
 }
 
