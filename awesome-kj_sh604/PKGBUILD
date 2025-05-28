@@ -24,7 +24,7 @@ provides=('notification-daemon' 'awesome')
 conflicts=('awesome')
 backup=('etc/xdg/awesome/rc.lua')
 source=("$_pkgname::git+https://github.com/kj-sh604/awesome.git#commit=$_commit")
-md5sums=('8be07643cff51c0a7ef37af8e700ec56')
+sha256sums=('90eddcfa52a693a8397f3c40ed5b1a82027ee1665111598385ce3a5dcf1037f9')
 _LUA_VER=5.4
 
 build() {
