@@ -1,0 +1,17 @@
+pkgbase = acpilight-kj_sh604
+	pkgdesc = A backward-compatible xbacklight replacement based on ACPI
+	pkgver = 1.2
+	pkgrel = 3
+	url = https://github.com/kj-sh604/acpilight
+	install = acpilight.install
+	arch = any
+	license = GPL-3.0-only
+	makedepends = git
+	depends = python
+	provides = xorg-xbacklight
+	conflicts = xorg-xbacklight
+	conflicts = acpilight
+	source = acpilight::git+https://github.com/kj-sh604/acpilight.git#commit=1d892d600a00aece87c6c5588bce93721c898acb
+	sha256sums = b5db8ddffd7df5b314618c77edf17f2cc611636efee62fd31afb0e3d9a546c06
+
+pkgname = acpilight-kj_sh604
