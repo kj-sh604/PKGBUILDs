@@ -3,8 +3,8 @@
 pkgname=coreutils-uutils
 pkgver=0.1.0
 pkgrel=3
-pkgdesc='(warning: use at own risk) Cross-platform Rust rewrite of the GNU
-coreutils installed as system core utilities.'
+pkgdesc='Cross-platform Rust rewrite of the GNU coreutils installed as system
+core utilities (WARNING: use at own risk).'
 arch=('x86_64')
 license=('MIT')
 url='https://github.com/uutils/coreutils'
