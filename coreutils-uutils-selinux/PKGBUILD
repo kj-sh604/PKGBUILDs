@@ -31,14 +31,14 @@ makedepends=(
   rust
 )
 source=("uutils-coreutils-$pkgver.tar.gz::$url/archive/$pkgver.tar.gz"
-         0001-update-selinux-progs.patch)
+         update-progs.patch)
 sha256sums=('55c528f2b53c1b30cb704550131a806e84721c87b3707b588a961a6c97f110d8'
-            'd8290988c9c8275e2087f1a63d63c420c88ebcf7c50aed0ef53d9dcd46517b36')
+            '0bd635cc349cfe133ddad0b1d05256c023b46f4a30f81aee123100119762df8e')
 
  prepare() {
-   cd ${pkgname%-uutils-selinux}-${pkgver}
-  # patch SELINUX_PROGS to include stty
-  patch -Np1 -i $srcdir/0001-update-selinux-progs.patch
+  cd ${pkgname%-uutils-selinux}-${pkgver}
+  # patch PROGS to include stty
+  patch -Np1 -i $srcdir/update-progs.patch
 }
 
 package() {
