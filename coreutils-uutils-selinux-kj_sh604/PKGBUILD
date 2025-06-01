@@ -36,13 +36,13 @@ sha256sums=('55c528f2b53c1b30cb704550131a806e84721c87b3707b588a961a6c97f110d8'
             '0bd635cc349cfe133ddad0b1d05256c023b46f4a30f81aee123100119762df8e')
 
  prepare() {
-  cd ${pkgname%-uutils-selinux-kjsh604}-${pkgver}
+  cd ${pkgname%-uutils-selinux-kj_sh604}-${pkgver}
   # patch PROGS to include stty
   patch -Np1 -i $srcdir/update-progs.patch
 }
 
 package() {
-  cd ${pkgname%-uutils-selinux-kjsh604}-${pkgver}
+  cd ${pkgname%-uutils-selinux-kj_sh604}-${pkgver}
   export RUSTONIG_DYNAMIC_LIBONIG=1
   make install \
       USE=selinux \
@@ -55,7 +55,7 @@ package() {
       SKIP_UTILS="hostname kill more uptime"
   # add libstdbuf.so
   mkdir -p $pkgdir/usr/lib/coreutils
-  cd $srcdir && cd ${pkgname%-uutils-selinux-kjsh604}-${pkgver}/target/release/deps
+  cd $srcdir && cd ${pkgname%-uutils-selinux-kj_sh604}-${pkgver}/target/release/deps
   mv liblibstdbuf.so $pkgdir/usr/lib/coreutils/libstdbuf.so
   # clean conflicts (arch ships these in the bash-completion package)
   rm $pkgdir/usr/share/bash-completion/completions/*
