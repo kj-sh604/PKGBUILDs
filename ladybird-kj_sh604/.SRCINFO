@@ -1,0 +1,35 @@
+pkgbase = ladybird-kj_sh604
+	pkgdesc = Truly independent web browser (personally maintained by: kj_sh604)
+	pkgver = 20250601
+	pkgrel = 1
+	url = https://github.com/LadybirdBrowser/ladybird
+	arch = x86_64
+	license = BSD-2-Clause
+	makedepends = autoconf-archive
+	makedepends = automake
+	makedepends = cmake
+	makedepends = git
+	makedepends = nasm
+	makedepends = ninja
+	makedepends = tar
+	makedepends = unzip
+	makedepends = zip
+	depends = curl
+	depends = ffmpeg
+	depends = libgl
+	depends = qt6-base
+	depends = qt6-multimedia
+	depends = qt6-tools
+	depends = qt6-wayland
+	depends = ttf-liberation
+	options = !lto
+	options = !debug
+	options = !buildflags
+	source = git+https://github.com/LadybirdBrowser/ladybird#commit=417f4edc463ae35d5073dbcfa5bd43972c32bd69
+	source = git+https://github.com/microsoft/vcpkg.git#commit=89dc8be6dbcf18482a5a1bf86a2f4615c939b0fb
+	source = ladybird.desktop
+	sha256sums = db7cc522a771c5574dc0f575b142498671a544a62c5ef97cccd129fde04eb25a
+	sha256sums = 3dfa3dc80da40483565a55180c8fa6fd9d4af2354bd1c7b38de5daecf6085a20
+	sha256sums = c83838259b1b8cf1c7118b706286c99977223439bbcc056694e2952708bf2350
+
+pkgname = ladybird-kj_sh604
