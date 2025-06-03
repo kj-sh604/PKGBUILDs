@@ -1,0 +1,69 @@
+pkgname=coreutils-kj_sh604
+pkgver=9.7
+pkgrel=1
+pkgdesc='The basic file, shell and text manipulation utilities of the GNU operating system'
+arch=('x86_64')
+license=(
+  GPL-3.0-or-later
+  GFDL-1.3-or-later
+)
+url='https://www.gnu.org/software/coreutils/'
+depends=( 
+  acl  
+  attr
+  glibc
+  gmp
+  libcap
+  openssl
+)
+makedepends=(
+  git
+  gperf
+  python
+  wget
+)
+conflicts=(
+    coreutils
+    coreutils-arch
+)
+provides=(
+    coreutils
+    coreutils-arch
+)
+source=(
+  https://ftp.gnu.org/gnu/coreutils/coreutils-${pkgver}.tar.xz
+)
+b2sums=('e5e5f7ec26c3952eb6a25988f78d3a1f8a70cf97a2fbc7b433dfcd1721cd38e6e0a8b9cb83f854a22df325bcb5ea8c4534c5a217273762cd5d575b381db69ee8')
+
+prepare() {
+  cd "${pkgname%-kj_sh604}-${pkgver}"
+  local src
+  for src in "${source[@]}"; do
+    src="${src%%::*}"
+    src="${src##*/}"
+    [[ $src = *.patch ]] || continue
+    echo "Applying patch $src..."
+    patch -Np1 < "../$src"
+  done
+}
+
+build() {
+  cd "${pkgname%-kj_sh604}-${pkgver}"
+  ./configure \
+    --prefix=/usr \
+    --libexecdir=/usr/lib \
+    --with-openssl \
+    --enable-install-program=arch \
+    --enable-no-install-program=hostname,kill,uptime
+  make
+}
+
+check() {
+  cd "${pkgname%-kj_sh604}-${pkgver}"
+  make check
+}
+
+package() {
+  cd "${pkgname%-kj_sh604}-${pkgver}"
+  make DESTDIR="${pkgdir}" install
+}
