@@ -1,7 +1,8 @@
 pkgname=coreutils-kj_sh604
 pkgver=9.7
 pkgrel=1
-pkgdesc='The basic file, shell and text manipulation utilities of the GNU operating system'
+pkgdesc='The basic file, shell and text manipulation utilities of the GNU
+operating system (with the `arch` binary, managed by kj_sh604)'
 arch=('x86_64')
 license=(
   GPL-3.0-or-later
