@@ -1,0 +1,19 @@
+pkgbase = gnome-calculator-3.10.2-bin
+	pkgdesc = GNOME Scientific calculator (last non-CSD release; binary file from archive.org)
+	pkgver = 3.10.2
+	pkgrel = 1
+	url = https://wiki.gnome.org/Apps/Calculator
+	arch = x86_64
+	license = GPL
+	makedepends = intltool
+	makedepends = yelp-tools
+	makedepends = vala
+	makedepends = tar
+	depends = gtk3
+	depends = dconf
+	provides = gnome-calculator=3.10.2
+	conflicts = gnome-calculator
+	source = gnome-calculator-3.10.2-1-x86_64.pkg.tar.xz::https://archive.org/download/archlinux_pkg_gnome-calculator/gnome-calculator-3.10.2-1-x86_64.pkg.tar.xz
+	sha256sums = 63793d1e50530bd27c9d2155172a3bec2a41b71b4b933e8104fdd639187163cd
+
+pkgname = gnome-calculator-3.10.2-bin

@@ -1,0 +1,32 @@
+_pkgname=gnome-calculator
+pkgname=${_pkgname}-3.10.2-bin
+pkgver=3.10.2
+pkgrel=1
+pkgdesc="GNOME Scientific calculator (last non-CSD release; binary file from archive.org)"
+url="https://wiki.gnome.org/Apps/Calculator"
+arch=(x86_64)
+license=(GPL)
+depends=(
+    gtk3
+    dconf
+)
+makedepends=(
+    intltool
+    yelp-tools
+    vala
+    tar
+)
+provides=("${_pkgname}=${pkgver}")
+conflicts=("${_pkgname}")
+source=(
+  "gnome-calculator-${pkgver}-${pkgrel}-x86_64.pkg.tar.xz::https://archive.org/download/archlinux_pkg_gnome-calculator/gnome-calculator-${pkgver}-${pkgrel}-${arch}.pkg.tar.xz"
+)
+sha256sums=('63793d1e50530bd27c9d2155172a3bec2a41b71b4b933e8104fdd639187163cd')
+
+prepare() {
+  tar --pax-option=delete=SCHILY.fflags -xJf "${srcdir}/${_pkgname}-${pkgver}-${pkgrel}-${arch}.pkg.tar.xz" -C "${srcdir}"
+}
+
+package() {
+  cp -r "${srcdir}/usr" "${pkgdir}"
+}
