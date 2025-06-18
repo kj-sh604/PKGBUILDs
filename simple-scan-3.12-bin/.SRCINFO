@@ -1,0 +1,25 @@
+pkgbase = simple-scan-3.12-bin
+	pkgdesc = Simple scanning utility before CSD changes (3.12 archive.org binary package)
+	pkgver = 3.12.0
+	pkgrel = 2
+	url = https://gitlab.gnome.org/GNOME/simple-scan
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	makedepends = meson
+	makedepends = vala
+	makedepends = yelp-tools
+	makedepends = tar
+	depends = colord-sane
+	depends = dconf
+	depends = gtk3
+	depends = libgusb
+	depends = libhandy
+	depends = sane
+	depends = sane-backends
+	provides = simple-scan
+	conflicts = simple-scan
+	source = simple-scan-3.12.0-2-x86_64.pkg.tar.xz::https://archive.org/download/archlinux_pkg_simple-scan/simple-scan-3.12.0-2-x86_64.pkg.tar.xz
+	sha256sums = fd1738aa918bb595726e1aa2b1913fef216f48db10a52fe7d50a5faa9cb448d9
+
+pkgname = simple-scan-3.12-bin

@@ -1,0 +1,35 @@
+pkgname=simple-scan-3.12-bin
+pkgver=3.12.0
+pkgrel=2
+pkgdesc="Simple scanning utility before the CSD changes (3.12 archive.org binary package)"
+arch=('x86_64')
+url="https://gitlab.gnome.org/GNOME/simple-scan"
+license=('GPL')
+depends=(
+  colord-sane
+  dconf
+  gtk3
+  libgusb
+  libhandy
+  sane
+)
+makedepends=(
+  meson
+  vala
+  yelp-tools
+  tar
+)
+provides=('simple-scan')
+conflicts=('simple-scan')
+source=(
+  "simple-scan-${pkgver}-2-x86_64.pkg.tar.xz::https://archive.org/download/archlinux_pkg_simple-scan/simple-scan-${pkgver}-${pkgrel}-x86_64.pkg.tar.xz"
+)
+sha256sums=('fd1738aa918bb595726e1aa2b1913fef216f48db10a52fe7d50a5faa9cb448d9')
+
+prepare() {
+  tar --pax-option=delete=SCHILY.fflags -xJf "${srcdir}/${pkgname%-3.12-bin}-${pkgver}-${pkgrel}-x86_64.pkg.tar.xz" -C "${srcdir}"
+}
+
+package() {
+  cp -r "${srcdir}/usr" "${pkgdir}"
+}
