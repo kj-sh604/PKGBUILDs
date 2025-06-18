@@ -24,7 +24,7 @@ pkgver() {
 }
 
 prepare() {
-  tar -xJf "${srcdir}/gnome-doc-utils-0.20.10+16+gc03cc09-2-any.pkg.tar.xz" -C "${srcdir}"
+  tar -xJf "${srcdir}/$_pkgname-$pkgver-$_archiverel-any.pkg.tar.xz" -C "${srcdir}"
   mkdir -p "${srcdir}/build"
 }
 
