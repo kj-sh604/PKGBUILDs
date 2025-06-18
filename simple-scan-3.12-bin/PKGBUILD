@@ -22,12 +22,12 @@ makedepends=(
 provides=('simple-scan')
 conflicts=('simple-scan')
 source=(
-  "simple-scan-${pkgver}-2-x86_64.pkg.tar.xz::https://archive.org/download/archlinux_pkg_simple-scan/simple-scan-${pkgver}-${pkgrel}-x86_64.pkg.tar.xz"
+  "${pkgname%-3.12-bin}-${pkgver}-${pkgrel}-${arch}.pkg.tar.xz::https://archive.org/download/archlinux_pkg_simple-scan/${pkgname%-3.12-bin}-${pkgver}-${pkgrel}-${arch}.pkg.tar.xz"
 )
 sha256sums=('fd1738aa918bb595726e1aa2b1913fef216f48db10a52fe7d50a5faa9cb448d9')
 
 prepare() {
-  tar --pax-option=delete=SCHILY.fflags -xJf "${srcdir}/${pkgname%-3.12-bin}-${pkgver}-${pkgrel}-x86_64.pkg.tar.xz" -C "${srcdir}"
+  tar --pax-option=delete=SCHILY.fflags -xJf "${srcdir}/${pkgname%-3.12-bin}-${pkgver}-${pkgrel}-${arch}.pkg.tar.xz" -C "${srcdir}"
 }
 
 package() {
