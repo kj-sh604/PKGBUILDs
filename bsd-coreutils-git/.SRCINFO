@@ -1,0 +1,15 @@
+pkgbase = bsd-coreutils-port-git
+	pkgdesc = A collection of basic BSD utilities ported to GNU/Linux
+	pkgver = r545.d2b28e0
+	pkgrel = 1
+	url = https://github.com/DiegoMagdaleno/BSDCoreUtils
+	arch = x86_64
+	license = BSD
+	makedepends = cmake
+	makedepends = git
+	depends = glibc
+	depends = openssl
+	source = git+https://github.com/DiegoMagdaleno/BSDCoreUtils.git
+	sha256sums = SKIP
+
+pkgname = bsd-coreutils-port-git

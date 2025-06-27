@@ -1,0 +1,55 @@
+pkgname=bsd-coreutils-port-git
+_pkgname=BSDCoreUtils
+pkgver=r545.d2b28e0
+pkgrel=1
+pkgdesc="A collection of basic BSD utilities ported to GNU/Linux"
+arch=('x86_64')
+url="https://github.com/DiegoMagdaleno/BSDCoreUtils"
+license=('BSD')
+depends=('glibc' 'openssl')
+makedepends=('cmake' 'git')
+source=("git+https://github.com/DiegoMagdaleno/BSDCoreUtils.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$_pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "$_pkgname"
+  cmake -B build -S . \
+    -DCMAKE_INSTALL_PREFIX=/opt/bsd-coreutils \
+    -DCMAKE_BUILD_TYPE=Release
+  make -C build
+}
+
+package() {
+  cd "$_pkgname"
+  make -C build DESTDIR="$pkgdir" install
+  install -d "$pkgdir/usr/bin"
+
+  if [ -d "$pkgdir/opt/bsd-coreutils/bin" ]; then
+    for bin in $(ls "$pkgdir/opt/bsd-coreutils/bin/"); do
+      ln -s "/opt/bsd-coreutils/bin/$bin" "$pkgdir/usr/bin/bsd_$bin"
+    done
+  fi
+
+  # just move manpages to the correct spot and add a prefix, for now
+  # i'll deal with this some other time
+  install -d "$pkgdir/usr/share/man"
+  for mandir in "$pkgdir"/man*; do
+    if [ -d "$mandir" ]; then
+      for manfile in "$mandir"/*; do
+        if [ -f "$manfile" ]; then
+          section=$(basename "$mandir")
+          newname="bsd_$(basename "$manfile")"
+          install -Dm644 "$manfile" "$pkgdir/usr/share/man/$section/$newname"
+        fi
+      done
+      rm -rf "$mandir"
+    fi
+  done
+}
+
+# vim: set ts=2 sw=2 et:
