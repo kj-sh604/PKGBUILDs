@@ -1,0 +1,13 @@
+pkgbase = firefox-esr-firefox-symlink
+	pkgdesc = A symlink for using firefox-esr as a firefox drop-in replacement
+	pkgver = 1
+	pkgrel = 1
+	url = https://librewolf.net/
+	arch = any
+	license = 0BSD
+	depends = librewolf
+	provides = firefox
+	source = firefox.desktop
+	sha256sums = 0609e190061415d3b6a1042bf8d5143e159ba94bfe9a994b64af487e27030141
+
+pkgname = firefox-esr-firefox-symlink

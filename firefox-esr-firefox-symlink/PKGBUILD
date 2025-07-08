@@ -1,0 +1,19 @@
+# Maintainer: kj_sh604 <406hs_jk@proton.me>
+
+pkgname=firefox-esr-firefox-symlink
+pkgver=1
+pkgrel=1
+pkgdesc="A symlink for using firefox-esr as a firefox drop-in replacement"
+arch=('any')
+url="https://librewolf.net/"
+license=('0BSD')
+depends=('librewolf')
+provides=('firefox')
+source=('firefox.desktop')
+sha256sums=('0609e190061415d3b6a1042bf8d5143e159ba94bfe9a994b64af487e27030141')
+
+package() {
+  install -d "$pkgdir"/usr/bin
+  ln -s $(which firefox-esr) "$pkgdir"/usr/bin/firefox
+  install -Dm644 firefox.desktop "$pkgdir"/usr/share/applications/firefox.desktop
+}
