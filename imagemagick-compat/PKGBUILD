@@ -129,7 +129,4 @@ package() {
 #!/bin/sh
 exec magick "\$@"
 END
-
-  # Finalize libtool modules
-  libtool --finish "$pkgdir/usr/lib/ImageMagick-7.1.1/modules-Q16HDRI/coders"
 }
