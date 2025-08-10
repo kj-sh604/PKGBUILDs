@@ -1,2 +1,2 @@
-#!/usr/bin/env bash
+#!/bin/sh
 /opt/azure-cli/bin/python -m azure.cli "$@"
