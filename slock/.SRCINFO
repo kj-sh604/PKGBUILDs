@@ -1,14 +1,14 @@
 pkgbase = slock
 	pkgdesc = A simple screen locker for X
-	pkgver = 1.5
-	pkgrel = 3
+	pkgver = 1.6
+	pkgrel = 1
 	url = https://tools.suckless.org/slock
 	arch = x86_64
 	license = MIT
 	makedepends = git
 	depends = libxext
 	depends = libxrandr
-	source = https://aedrielkylejavier.me/assets/slock-1.5.tar.gz
-	sha256sums = d1f9cb0a58985c77a80a737fbd09b5b82e41ff08f0d1a6b2824db335c3bfa10b
+	source = https://aedrielkylejavier.me/assets/slock-1.6.tar.gz
+	sha256sums = eb4a94e8773ac077623e691b25ff3dd2222d072e57149f785bee69b180064975
 
 pkgname = slock

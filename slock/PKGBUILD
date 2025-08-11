@@ -1,10 +1,6 @@
-# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
-# Maintainer: T.J. Townsend <blakkheim@archlinux.org>
-# Contributor: Sebastian A. Liem <sebastian at liem dot se>
-
 pkgname=slock
-pkgver=1.5
-pkgrel=3
+pkgver=1.6
+pkgrel=1
 pkgdesc="A simple screen locker for X"
 arch=('x86_64')
 url="https://tools.suckless.org/slock"
@@ -12,7 +8,7 @@ license=('MIT')
 makedepends=('git')
 depends=('libxext' 'libxrandr')
 source=("https://aedrielkylejavier.me/assets/$pkgname-$pkgver.tar.gz")
-sha256sums=('d1f9cb0a58985c77a80a737fbd09b5b82e41ff08f0d1a6b2824db335c3bfa10b')
+sha256sums=('eb4a94e8773ac077623e691b25ff3dd2222d072e57149f785bee69b180064975')
 
 prepare() {
   cd "$srcdir/slock-$pkgver"
