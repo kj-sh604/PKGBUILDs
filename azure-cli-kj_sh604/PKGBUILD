@@ -1,6 +1,6 @@
 _pkgname=azure-cli
 pkgname=azure-cli-kj_sh604
-pkgver=2.75.0
+pkgver=2.76.0
 pkgrel=1
 pkgdesc="Command-line tools for Microsoft Azure (uses python3.12)"
 # Microsoft has not updated `az` to support python 3.13 yet: https://learn.microsoft.com/en-us/cli/azure/azure-cli-support-lifecycle?view=azure-cli-latest#python-dependency
@@ -19,7 +19,7 @@ makedepends=("git")
 options=('!debug' '!strip')
 source=("git+https://github.com/Azure/azure-cli.git#tag=azure-cli-${pkgver}"
         "az")
-sha256sums=('2092aabd27a064df4ebb070320c08b57f6cbe6202ca0959217dbcf7408e741ba'
+sha256sums=('9a7dffb6b7dd7523909b0188702156bda2317d3fe1342c15db8dc1f1f8c43567'
             'beba4c6b852bd4f3b2bfaa26cec9318b19b677a937c3e9ce239c21b13ec00b07')
 
 prepare() {
