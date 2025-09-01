@@ -1,0 +1,24 @@
+post_install() {
+  systemctl stop key-mapper >/dev/null 2>&1 || true
+  systemctl disable key-mapper >/dev/null 2>&1 || true
+  echo 'enabling input-remapper systemd service'
+  systemctl enable input-remapper
+  systemctl start input-remapper
+}
+
+post_upgrade() {
+  if [ -d "/run/systemd/system/" ] && systemctl is-active --quiet key-mapper
+  then
+    systemctl stop key-mapper >/dev/null 2>&1 || true
+    systemctl disable key-mapper >/dev/null 2>&1 || true
+    echo 'restarting input-remapper systemd service'
+    systemctl restart input-remapper
+  fi
+}
+
+post_remove() {
+  echo 'disabling input-remapper systemd service'
+  systemctl disable input-remapper || true
+}
+
+# vim: ts=2 sw=2 et:
