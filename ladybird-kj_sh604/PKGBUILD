@@ -1,5 +1,5 @@
 pkgname=ladybird-kj_sh604
-pkgver=20250802
+pkgver=20250904
 pkgrel=1
 pkgdesc='Truly independent web browser (personally maintained by: kj_sh604)'
 arch=(x86_64)
@@ -11,11 +11,11 @@ depends=(curl ffmpeg libgl qt6-base qt6-multimedia qt6-tools qt6-wayland ttf-lib
 makedepends=(autoconf-archive automake cmake git nasm ninja tar unzip zip)
 options=('!lto' '!debug' '!buildflags' '!staticlibs' '!emptydirs')
 source=(
-  "git+$url#commit=3dd8b3230e7a9a198e6a0cc68f8a226a7b7c1617"
-  "git+https://github.com/microsoft/vcpkg.git#commit=903956eff7cb94774a9e805ff573c000afc43e3e"
+  "git+$url#commit=87c7fb1d633676201c96bb3c5c09a81719691990"
+  "git+https://github.com/microsoft/vcpkg.git#commit=120deac3062162151622ca4860575a33844ba10b"
 )
-sha256sums=('59432d4e43baaee58680b4033d896942a43312a2f4c1bd947b1e9fe7f0bbfaf7'
-            '6c12cb5abdf86e705cc0ab66a23f3f60200af0ebc0543f7892d072a4a0800387')
+sha256sums=('59d3c9e2449bfaa17cbd6af67e86d7864c328183ea432ce6c4c992bc9f67c411'
+            '8eee3f54a076a3d16fda6d047b1b812ecda69d75d474512c35f881a57b99b2e4')
 
 build() {
   cd "${srcdir}"
