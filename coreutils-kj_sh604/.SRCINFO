@@ -1,6 +1,6 @@
 pkgbase = coreutils-kj_sh604
 	pkgdesc = The basic file, shell and text manipulation utilities of the GNU operating system (with the `arch` binary, managed by kj_sh604)
-	pkgver = 9.7
+	pkgver = 9.8
 	pkgrel = 1
 	url = https://www.gnu.org/software/coreutils/
 	arch = x86_64
@@ -20,7 +20,8 @@ pkgbase = coreutils-kj_sh604
 	provides = coreutils-arch
 	conflicts = coreutils
 	conflicts = coreutils-arch
-	source = https://ftp.gnu.org/gnu/coreutils/coreutils-9.7.tar.xz
-	b2sums = e5e5f7ec26c3952eb6a25988f78d3a1f8a70cf97a2fbc7b433dfcd1721cd38e6e0a8b9cb83f854a22df325bcb5ea8c4534c5a217273762cd5d575b381db69ee8
+	options = !lto
+	source = https://ftp.gnu.org/gnu/coreutils/coreutils-9.8.tar.xz
+	b2sums = a93e26c8dda875b11541808d82ff8d6537f521b9c44e2a9959ee8f452823a4df5aed2793ac32766e2d3f832606d7190f7f53ea5870419f585aa66429a9626d98
 
 pkgname = coreutils-kj_sh604
