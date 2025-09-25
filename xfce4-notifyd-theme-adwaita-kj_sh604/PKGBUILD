@@ -1,0 +1,17 @@
+pkgname=xfce4-notifyd-theme-adwaita-kj_sh604
+pkgver=1
+pkgrel=1
+pkgdesc="Adwaita-inspired xfce4-notifyd theme by kj_sh604"
+arch=(any)
+url="https://github.com/kj-sh604/xfce4-notifyd-adwaita-alt"
+license=('GPL3')
+depends=()
+makedepends=('git')
+source=("${pkgname}::git+${url}.git#commit=4297d6595bca9eefceae773aade716a6ee38af27")
+sha384sums=('3f65c83242c72d56b5c2c912957de45b8d56b82a4e3197192050710b999a572260631fea339fd4906f77258704d3de31')
+
+package() {
+	install -dm755 "${pkgdir}/usr/share/themes/Adwaita-KJ/"
+	cp -r "${srcdir}/${pkgname}/"* "${pkgdir}/usr/share/themes/Adwaita-KJ/"
+	rm -rf "${pkgdir}/usr/share/themes/Adwaita-KJ/.git" || true
+}
