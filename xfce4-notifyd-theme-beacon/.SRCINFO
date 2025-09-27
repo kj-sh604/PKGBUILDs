@@ -1,0 +1,13 @@
+pkgbase = xfce4-notifyd-theme-beacon
+	pkgdesc = Beacon theme for xfce4-notifyd by kj_sh604
+	pkgver = 1
+	pkgrel = 1
+	url = https://github.com/kj-sh604/xfce4-notifyd-theme-beacon
+	arch = any
+	license = CC0-1.0
+	makedepends = git
+	depends = xfce4-notifyd
+	source = xfce4-notifyd-theme-beacon::git+https://github.com/kj-sh604/xfce4-notifyd-theme-beacon.git#commit=73a5dab1e1d9f8d89100a67e2d59595e13ec78a8
+	sha384sums = dbec0c9a806eac26b4da1689c7f352dff80da2f298d8b4621b9cbadb95e2c8576700658701c45bc472c017184c7b42ea
+
+pkgname = xfce4-notifyd-theme-beacon
