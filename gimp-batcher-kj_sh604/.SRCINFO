@@ -1,6 +1,6 @@
 pkgbase = gimp-batcher-kj_sh604
 	pkgdesc = A batch processing plugin for the new generation of GIMP
-	pkgver = 1.0.2
+	pkgver = 1.1.1
 	pkgrel = 1
 	url = https://github.com/kamilburda/batcher
 	arch = i686
@@ -10,7 +10,7 @@ pkgbase = gimp-batcher-kj_sh604
 	depends = gimp>=3.0
 	depends = python>=3.7
 	depends = python-gobject
-	source = https://github.com/kamilburda/batcher/releases/download/1.0.2/batcher-1.0.2.zip
-	sha256sums = fa9a83a4a278880f504e546f10503de3bfb2f07aa1e96668f9a778de7c7d936f
+	source = https://github.com/kamilburda/batcher/releases/download/1.1.1/batcher-1.1.1.zip
+	sha256sums = d99eacdf004c7cb3c24d777067ae6fc2d0cc069026e883f6eb46ad08a3d5c4fa
 
 pkgname = gimp-batcher-kj_sh604
