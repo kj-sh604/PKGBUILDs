@@ -1,27 +1,49 @@
 pkgname=ladybird-kj_sh604
-pkgver=20250904
+pkgver=20251005
 pkgrel=1
-pkgdesc='Truly independent web browser (personally maintained by: kj_sh604)'
+pkgdesc='Truly independent web browser'
 arch=(x86_64)
 url='https://github.com/LadybirdBrowser/ladybird'
 license=(BSD-2-Clause)
 conflicts=(ladybird)
 provides=(ladybird)
-depends=(curl ffmpeg libgl qt6-base qt6-multimedia qt6-tools qt6-wayland ttf-liberation)
-makedepends=(autoconf-archive automake cmake git nasm ninja tar unzip zip)
+depends=(
+  curl
+  fast_float
+  ffmpeg
+  harfbuzz
+  icu
+  libavif
+  libgl
+  libjpeg-turbo
+  libjxl
+  libtiff
+  libtommath
+  libwebp
+  qt6-base
+  qt6-multimedia
+  qt6-tools
+  qt6-wayland
+  sdl3
+  sqlite
+  ttf-liberation
+  woff2
+
+  libpng-apng # AUR
+  angle # AUR
+  simdutf-git # 'simdutf' is v6, we need v7.
+)
+makedepends=(autoconf-archive automake cmake git nasm ninja patchelf skia-static tar unzip zip)
 options=('!lto' '!debug' '!buildflags' '!staticlibs' '!emptydirs')
 source=(
-  "git+$url#commit=87c7fb1d633676201c96bb3c5c09a81719691990"
-  "git+https://github.com/microsoft/vcpkg.git#commit=120deac3062162151622ca4860575a33844ba10b"
+  "git+$url#commit=a098b5fcc4a8a2d07590d999b5f2c529355a5a81"
 )
-sha256sums=('59d3c9e2449bfaa17cbd6af67e86d7864c328183ea432ce6c4c992bc9f67c411'
-            '8eee3f54a076a3d16fda6d047b1b812ecda69d75d474512c35f881a57b99b2e4')
+sha384sums=('cc61a952b3141a7a9ad08aed10dc79bc3106e34fe70e9c3bb7681f5aa04a080537a1943622a30617c43aadfe6e758208')
 
 build() {
   cd "${srcdir}"
 
-  export VCPKG_ROOT="${srcdir}/vcpkg"
-  export VCPKG_DISABLE_METRICS="true"
+  export PKG_CONFIG_PATH=$(realpath .)
 
   local use_linker=
   if ! echo $'#if defined(__clang__)\nWE ARE ON CLANG\n#endif' | "${CC:-/usr/bin/cc}" -E - | grep -q 'WE ARE ON CLANG'; then
@@ -29,18 +51,14 @@ build() {
     use_linker='-DENABLE_LTO_FOR_RELEASE=OFF'
   fi
 
-  sed -i -e "s/COMMIT_HASH/$(git -C ladybird show -s --format=%H)/" -e "s/COMMIT_DATE/$(git -C ladybird show -s --format=%ci)/" ladybird/Base/res/ladybird/about-pages/newtab.html
-
   cmake \
-    --preset Release \
     -B build \
     -S ladybird \
     -DBUILD_SHARED_LIBS=OFF \
+    -DLADYBIRD_CACHE_DIR=Build/caches \
     -DCMAKE_BUILD_TYPE=Release \
     $use_linker \
-    -DVCPKG_OVERLAY_TRIPLETS="${srcdir}/ladybird/Meta/CMake/vcpkg/distribution-triplets" \
-    -DCMAKE_INSTALL_PREFIX='/usr' \
-    -DCMAKE_TOOLCHAIN_FILE="${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" \
+    -DCMAKE_INSTALL_PREFIX='/opt/ladybird/usr' \
     -DENABLE_INSTALL_HEADERS=OFF \
     -DCMAKE_INSTALL_LIBEXECDIR="lib/${pkgname%-git}" \
     -GNinja \
@@ -56,7 +74,18 @@ package() {
   find "$pkgdir" -name '*.a' -delete
   find "$pkgdir" -name '*.cmake' -delete
 
-  install -Dm644 "ladybird/Base/res/icons/128x128/app-browser.png" "${pkgdir}/usr/share/pixmaps/ladybird.png"
+  find "$pkgdir" -type f -executable -exec sh -c '
+    for exe; do
+      r=$(patchelf --print-rpath "$exe" 2>/dev/null)
+      [ "${r%%/opt/angle/lib*}" = "$r" ] && patchelf --set-rpath "/opt/angle/lib${r:+:$r}" "$exe"
+    done
+  ' sh {} +
 
-  install -Dm644 ladybird/LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}/"
+  # Make the desktop file point to the file in /opt
+  RELATIVE_DESKTOP_FILE_PATH='usr/share/applications/org.ladybird.Ladybird.desktop'
+  sed -i -e 's#Exec=Ladybird #Exec=/opt/ladybird/usr/bin/Ladybird #' "${pkgdir}/opt/ladybird/${RELATIVE_DESKTOP_FILE_PATH}"
+
+
+  install -Dm644 ladybird/LICENSE -t "${pkgdir}/opt/ladybird/usr/share/licenses/${pkgname}/"
+  install -Dm644 "${pkgdir}/opt/ladybird/${RELATIVE_DESKTOP_FILE_PATH}" "${pkgdir}/${RELATIVE_DESKTOP_FILE_PATH}"
 }
