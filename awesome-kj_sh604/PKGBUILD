@@ -2,11 +2,11 @@
 
 pkgname=awesome-kj_sh604
 _pkgname=awesome
-pkgver=25.05.17
+pkgver=25.10.16
 pkgrel=1
 pkgdesc='this is just a renamed awesomeWM build, customized to suit
          my personal preferences on my system. (tagged release)'
-_commit='f009815cb75139acf4d8ba3c1090bf2844d13f4c'
+_commit='4f2bc5c10acaec4a1229db40f690e66284c109b9'
 arch=('i686' 'x86_64')
 url='https://awesomewm.org'
 license=('GPL2')
@@ -24,7 +24,7 @@ provides=('notification-daemon' 'awesome')
 conflicts=('awesome')
 backup=('etc/xdg/awesome/rc.lua')
 source=("$_pkgname::git+https://github.com/kj-sh604/awesome.git#commit=$_commit")
-sha256sums=('90eddcfa52a693a8397f3c40ed5b1a82027ee1665111598385ce3a5dcf1037f9')
+sha256sums=('f0f60fa1002fc8040717728bd5277ad8fb32e4d4054dca2baafafbb1fdc3b141')
 _LUA_VER=5.4
 
 build() {
@@ -49,3 +49,5 @@ package() {
   install -Dm644 "$srcdir"/$_pkgname/awesome.desktop \
     "$pkgdir/usr/share/xsessions/awesome.desktop"
 }
+
+# vim:set ts=2 sw=2 et:
