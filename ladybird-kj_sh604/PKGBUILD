@@ -1,5 +1,5 @@
 pkgname=ladybird-kj_sh604
-pkgver=20251005
+pkgver=20251015
 pkgrel=1
 pkgdesc='Truly independent web browser'
 arch=(x86_64)
@@ -36,9 +36,9 @@ depends=(
 makedepends=(autoconf-archive automake cmake git nasm ninja patchelf skia-static tar unzip zip)
 options=('!lto' '!debug' '!buildflags' '!staticlibs' '!emptydirs')
 source=(
-  "git+$url#commit=a098b5fcc4a8a2d07590d999b5f2c529355a5a81"
+  "git+$url#commit=98f91a3fcc50ebbadc81135ac9a5327f08742acd"
 )
-sha384sums=('cc61a952b3141a7a9ad08aed10dc79bc3106e34fe70e9c3bb7681f5aa04a080537a1943622a30617c43aadfe6e758208')
+sha384sums=('74e224bb08bcbae5ba3792866c41fc8b62454bdb08889fcb7ecfabccbd44ba148f65494f9d476e08a79c629f273c97eb')
 
 build() {
   cd "${srcdir}"
@@ -89,3 +89,5 @@ package() {
   install -Dm644 ladybird/LICENSE -t "${pkgdir}/opt/ladybird/usr/share/licenses/${pkgname}/"
   install -Dm644 "${pkgdir}/opt/ladybird/${RELATIVE_DESKTOP_FILE_PATH}" "${pkgdir}/${RELATIVE_DESKTOP_FILE_PATH}"
 }
+
+# vim:set ts=2 sw=2 et:
