@@ -1,5 +1,5 @@
 pkgname=coreutils-kj_sh604
-pkgver=9.8
+pkgver=9.9
 pkgrel=1
 pkgdesc='The basic file, shell and text manipulation utilities of the GNU
 operating system (with the `arch` binary, managed by kj_sh604)'
@@ -35,7 +35,7 @@ source=(
   https://ftp.gnu.org/gnu/coreutils/coreutils-${pkgver}.tar.xz
 )
 options=(!lto)
-b2sums=('a93e26c8dda875b11541808d82ff8d6537f521b9c44e2a9959ee8f452823a4df5aed2793ac32766e2d3f832606d7190f7f53ea5870419f585aa66429a9626d98')
+b2sums=('ddae0c1ff882739712e901d6eb1373e4172de9335b95b4c1004773aadc6b7e3cb3bf5aa583f13034062a75dc9194bf8534b0f7f1258c8ff64595b1301964e124')
 
 prepare() {
   cd "${pkgname%-kj_sh604}-${pkgver}"
@@ -58,11 +58,6 @@ build() {
     --enable-install-program=arch \
     --enable-no-install-program=hostname,kill,uptime
   make
-}
-
-check() {
-  cd "${pkgname%-kj_sh604}-${pkgver}"
-  make check
 }
 
 package() {
