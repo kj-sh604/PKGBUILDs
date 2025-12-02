@@ -2,11 +2,11 @@
 
 pkgname=awesome-kj_sh604
 _pkgname=awesome
-pkgver=25.11.09
+pkgver=25.11.17
 pkgrel=1
 pkgdesc='this is just a renamed awesomeWM build, customized to suit
          my personal preferences on my system. (tagged release)'
-_commit='492fa1fee5ce73f333f6abc2467f368ae191e2c8'
+_commit='41473c05ed9e85de66ffb805d872f2737c0458b6'
 arch=('i686' 'x86_64')
 url='https://awesomewm.org'
 license=('GPL2')
@@ -24,7 +24,7 @@ provides=('notification-daemon' 'awesome')
 conflicts=('awesome')
 backup=('etc/xdg/awesome/rc.lua')
 source=("$_pkgname::git+https://github.com/kj-sh604/awesome.git#commit=$_commit")
-sha256sums=('a753bdad5c65eea86b55d1d71ac06e29dbf5d177e215493576db9a78438aa58c')
+sha256sums=('d058bc770eb596e1574c7d327f92234756b0edcbc3ca9904ac743813012db815')
 _LUA_VER=5.4
 
 build() {
