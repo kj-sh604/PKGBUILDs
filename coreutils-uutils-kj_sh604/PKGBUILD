@@ -64,10 +64,6 @@ package() {
       PROFILE=release-fast \
       MULTICALL=y \
       SKIP_UTILS="hostname kill more uptime"
-  # add libstdbuf.so
-  mkdir -p $pkgdir/usr/lib/coreutils
-  cd $srcdir && cd ${pkgname%-uutils-kj_sh604}-${pkgver}/target/release-fast/deps
-  mv libstdbuf.so $pkgdir/usr/lib/coreutils/libstdbuf.so
   # clean conflicts (arch ships these in the bash-completion package)
   rm $pkgdir/usr/share/bash-completion/completions/*
   # symlink missing binaries
