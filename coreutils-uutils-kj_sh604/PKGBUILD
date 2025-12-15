@@ -66,6 +66,11 @@ package() {
       SKIP_UTILS="hostname kill more uptime"
   # clean conflicts (arch ships these in the bash-completion package)
   rm $pkgdir/usr/share/bash-completion/completions/*
+  # remove locales as a temporary workaround for uutils-coreutils conflict
+  rm -r "$pkgdir/usr/share/locales" || {
+    echo 'ERROR: SOMETHING VERY WRONG JUST HAPPENED'
+    exit 1
+  }
   # symlink missing binaries
   cd $pkgdir/usr/bin
   if [ -f "coreutils" ]; then
