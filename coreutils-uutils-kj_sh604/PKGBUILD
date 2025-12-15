@@ -1,0 +1,94 @@
+# Maintainer: kj_sh604 <406hs_jk@proton.me>
+
+pkgname=coreutils-uutils-kj_sh604
+pkgver=0.5.0
+pkgrel=1
+pkgdesc='Cross-platform Rust rewrite of the GNU coreutils installed as system
+core utilities (WARNING: use at own risk).'
+arch=('x86_64')
+license=('MIT')
+url='https://github.com/uutils/coreutils'
+conflicts=(
+  coreutils
+  b3sum
+  sha3sum
+)
+provides=(
+  coreutils
+  b3sum
+  sha3sum
+)
+depends=(
+  gcc-libs
+  glibc
+  oniguruma
+)
+makedepends=(
+  cargo
+  clang
+  python-sphinx
+  rust
+)
+source=(
+  "uutils-coreutils-$pkgver.tar.gz::$url/archive/$pkgver.tar.gz"
+  "glibc-2.42.patch::https://git.launchpad.net/~juliank/ubuntu/+source/rust-coreutils/plain/debian/patches/glibc-2.42.patch?h=ubuntu/devel&id=a16e77bec0546ee51770a891a24468e8048242e3"
+  nix-rust0.30.1.tar.gz::https://github.com/nix-rust/nix/archive/refs/tags/v0.30.1.tar.gz
+  "8b1b869-symlink-different-filesystem.patch::https://github.com/uutils/coreutils/commit/8b1b86914ae5e4e364e11a164b9d5e9a6e75da64.patch"
+)
+sha256sums=('83535e10c3273c31baa2f553dfa0ceb4148914e9c1a9c5b00d19fbda5b2d4d7d'
+            '3516ae0e2a4fe5fc4996e0f7c9952213f5b7394c739c79f31bafd2ba2a9e2ebb'
+            '31742bef74cad04c8bd8c9a7301323e3df35847f5b776024221cbd2060cd5ed7'
+            '39e76235cd5cd674962f47bd94d56f7840e9487f887f5ba905dbd3e56d6d5b38')
+
+prepare() {
+  cd ${pkgname%-uutils-kj_sh604}-${pkgver}
+  # https://github.com/uutils/coreutils/issues/8586
+  patch -Np1 -i $srcdir/8b1b869-symlink-different-filesystem.patch
+  # https://github.com/uutils/coreutils/issues/8474
+  mkdir -p rust-vendor
+  mv $srcdir/nix-0.30.1 rust-vendor/nix
+  patch -Np1 -i $srcdir/glibc-2.42.patch
+  echo -e "[patch.crates-io]\nnix = { path = \"rust-vendor/nix\" }" >>Cargo.toml
+  export RUSTONIG_DYNAMIC_LIBONIG=1
+
+}
+
+package() {
+  cd ${pkgname%-uutils-kj_sh604}-${pkgver}
+  make install \
+      DESTDIR="$pkgdir" \
+      PREFIX=/usr \
+      MANDIR=/share/man/man1 \
+      LIBSTDBUF_DIR=/usr/lib/${pkgname%-uutils-kj_sh604} \
+      PROG_PREFIX= \
+      PROFILE=release-fast \
+      MULTICALL=y \
+      SKIP_UTILS="hostname kill more uptime"
+  # add libstdbuf.so
+  mkdir -p $pkgdir/usr/lib/coreutils
+  cd $srcdir && cd ${pkgname%-uutils-kj_sh604}-${pkgver}/target/release-fast/deps
+  mv libstdbuf.so $pkgdir/usr/lib/coreutils/libstdbuf.so
+  # clean conflicts (arch ships these in the bash-completion package)
+  rm $pkgdir/usr/share/bash-completion/completions/*
+  # symlink missing binaries
+  cd $pkgdir/usr/bin
+  if [ -f "coreutils" ]; then
+    local binaries=( "b3sum" "sha3-224sum" "sha3-256sum" "sha3-384sum"
+      "sha3-512sum" "sha3sum" "shake128sum" "shake256sum")
+    for bin in "${binaries[@]}"; do
+      ln -s coreutils "$bin" || echo "warning: failed to create symlink for $bin"
+    done
+  else
+    echo "coreutils binary not found, skipping symlink creation."
+  fi
+
+  # create dummy shell scripts for chcon and runcon
+  install -m 755 <(echo "#!/bin/sh
+echo \"warning: chcon is no longer built with the coreutils-uutils-kj_sh604 package\"
+exit 1") $pkgdir/usr/bin/chcon
+  install -m 755 <(echo "#!/bin/sh
+echo \"warning: runcon is no longer built with the coreutils-uutils-kj_sh604 package\"
+exit 1") $pkgdir/usr/bin/runcon
+}
+
+# vim: ts=2 sw=2 et:
