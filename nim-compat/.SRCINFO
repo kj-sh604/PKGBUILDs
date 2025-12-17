@@ -18,11 +18,11 @@ pkgbase = nim
 	backup = etc/nim/nimdoc.cfg
 	backup = etc/nim/nimdoc.tex.cfg
 	backup = etc/nim/rename.rules.cfg
-	source = https://github.com/nim-lang/Nim/archive/v2.2.4/nim-2.2.4.tar.gz
+	source = https://github.com/nim-lang/Nim/archive/v2.2.6/nim-2.2.6.tar.gz
 	source = git+https://github.com/nim-lang/csources_v2.git#commit=86742fb02c6606ab01a532a0085784effb2e753e
-	sha256sums = f19df9192f7c9efd638f8bbf630cc184cc9950613235c7a23d99593269b1e2de
+	sha256sums = 4a691f3a5351540ca493ffe1f812cb3151cea9ab540d5001b54865d253229072
 	sha256sums = 130a6d21808f43da421057385a5a8fd0a6ebd0d211211d3edd645eefd4fc7087
-	b2sums = 05ca6b4ea2e78a3b7ce34e82a3e57d689430b7043883e979f6c08137126ee2a0174af5774418e94a937fb40defb2c637bf1a8642d73029982dde58255d03273f
+	b2sums = 99981be22a332c65c75b86164eb857984de20116ffb84e74501ab90cf8aa7154dc19f87e8128c8f1f6d76750054953ec34ca15896960a7beb707a56a72e5f344
 	b2sums = 2325bebb91b56f9373df83366efb308994fececc0f73acb2ad7b0822fc549d101026a5c1bf7c5ff7fd534e57f9e956f167bbfe00223fe3db0b487175cf0ca369
 
 pkgname = nim
