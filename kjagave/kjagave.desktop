@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=kjagave
+GenericName=Color Picker
+Comment=A color picker inspired by agave, but only with the features that kj_sh604 used
+Exec=kjagave
+Icon=kjagave
+Terminal=false
+Categories=Graphics;Utility;GTK;
+Keywords=color;picker;palette;screen;grab;
+StartupNotify=true
