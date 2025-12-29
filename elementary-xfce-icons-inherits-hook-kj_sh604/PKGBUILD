@@ -1,7 +1,7 @@
 # Maintainer: kj_sh604
 pkgname=elementary-xfce-icons-inherits-hook-kj_sh604
-pkgver=2025.12.28
-pkgrel=2
+pkgver=2025.12.29
+pkgrel=1
 pkgdesc="Pacman hook to modify elementary-xfce icon theme inheritance"
 arch=('any')
 url=""
