@@ -4,6 +4,7 @@ Operation = Upgrade
 Type = Package
 Target = elementary-xfce-icons
 Target = elementary-xfce-icons-git
+Target = elementary-xfce-icons-inherits-hook-kj_sh604
 
 [Action]
 Description = Modifying elementary-xfce icon theme inheritance...
