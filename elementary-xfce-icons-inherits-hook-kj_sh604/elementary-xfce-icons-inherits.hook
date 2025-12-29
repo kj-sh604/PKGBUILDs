@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = elementary-xfce-icons
+Target = elementary-xfce-icons-git
+
+[Action]
+Description = Modifying elementary-xfce icon theme inheritance...
+When = PostTransaction
+Exec = /usr/share/libalpm/scripts/elementary-xfce-icons-inherits.sh
