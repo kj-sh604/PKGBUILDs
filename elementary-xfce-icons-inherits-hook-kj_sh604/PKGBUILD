@@ -1,22 +1,28 @@
 # Maintainer: kj_sh604
 pkgname=elementary-xfce-icons-inherits-hook-kj_sh604
-pkgver=2025.12.29
-pkgrel=2
+pkgver=2026.01.13.2336
+pkgrel=1
 pkgdesc="Pacman hook to modify elementary-xfce icon theme inheritance"
 arch=('any')
 url=""
 license=('GPL')
 depends=('pacman')
 optdepends=('elementary-xfce-icons: elementary xfce icon theme'
-            'elementary-xfce-icons-git: elementary xfce icon theme (git version)')
+  'elementary-xfce-icons-git: elementary xfce icon theme (git version)')
 source=('elementary-xfce-icons-inherits.hook'
-        'elementary-xfce-icons-inherits.sh')
+  'elementary-xfce-icons-inherits.sh')
 sha256sums=('5942df880affa34035840a57e46fc7330807cc06dab99ada9660b56a88542fec'
-            'dda81c7813c67f1f601f70bef9d6ef1ef9c7b5c112ab2a5134641439b4992e2c')
+            '8e438b0dd5fc78138f8d27c865e4164fd09e7a1c09b4668253035246e4d5d258')
+
+pkgver() {
+  date +%Y.%m.%d.%H%M
+}
 
 package() {
-    install -Dm644 "${srcdir}/elementary-xfce-icons-inherits.hook" \
-        "${pkgdir}/usr/share/libalpm/hooks/elementary-xfce-icons-inherits.hook"
-    install -Dm755 "${srcdir}/elementary-xfce-icons-inherits.sh" \
-        "${pkgdir}/usr/share/libalpm/scripts/elementary-xfce-icons-inherits.sh"
+  install -Dm644 "${srcdir}/elementary-xfce-icons-inherits.hook" \
+    "${pkgdir}/usr/share/libalpm/hooks/elementary-xfce-icons-inherits.hook"
+  install -Dm755 "${srcdir}/elementary-xfce-icons-inherits.sh" \
+    "${pkgdir}/usr/share/libalpm/scripts/elementary-xfce-icons-inherits.sh"
 }
+
+# vim:set ts=2 sw=2 et:

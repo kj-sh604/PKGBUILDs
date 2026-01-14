@@ -1,7 +1,7 @@
 pkgbase = elementary-xfce-icons-inherits-hook-kj_sh604
 	pkgdesc = Pacman hook to modify elementary-xfce icon theme inheritance
-	pkgver = 2025.12.29
-	pkgrel = 2
+	pkgver = 2026.01.13.2336
+	pkgrel = 1
 	arch = any
 	license = GPL
 	depends = pacman
@@ -10,6 +10,6 @@ pkgbase = elementary-xfce-icons-inherits-hook-kj_sh604
 	source = elementary-xfce-icons-inherits.hook
 	source = elementary-xfce-icons-inherits.sh
 	sha256sums = 5942df880affa34035840a57e46fc7330807cc06dab99ada9660b56a88542fec
-	sha256sums = dda81c7813c67f1f601f70bef9d6ef1ef9c7b5c112ab2a5134641439b4992e2c
+	sha256sums = 8e438b0dd5fc78138f8d27c865e4164fd09e7a1c09b4668253035246e4d5d258
 
 pkgname = elementary-xfce-icons-inherits-hook-kj_sh604
