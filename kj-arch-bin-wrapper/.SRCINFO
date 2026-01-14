@@ -1,6 +1,6 @@
 pkgbase = kj-arch-bin-wrapper
 	pkgdesc = kj_sh604's wrapper script for arch command (uname -m)
-	pkgver = 2026.01.13.2206
+	pkgver = 2026.01.13.2210
 	pkgrel = 1
 	url = https://www.gnu.org/software/coreutils/coreutils.html
 	arch = any
