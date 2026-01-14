@@ -1,0 +1,74 @@
+pkgname=kj-arch-bin-wrapper
+pkgver=$(date +%Y.%m.%d.%H%M)
+pkgrel=1
+pkgdesc="kj_sh604's wrapper script for arch command (uname -m)"
+arch=('any')
+url="https://www.gnu.org/software/coreutils/coreutils.html"
+license=('0BSD')
+depends=('coreutils')
+
+pkgver() {
+	date +%Y.%m.%d.%H%M
+}
+
+package() {
+	install -dm755 "$pkgdir/usr/bin"
+	cat > "$pkgdir/usr/bin/arch" << 'EOF'
+#!/bin/sh
+VERSION=$(date +%Y.%m.%d.%H%M)
+
+case "$1" in
+	--help)
+		cat << 'HELP'
+usage: arch [OPTION]...
+print machine architecture.
+
+  --help     display this help and exit
+  --version  display version information
+HELP
+		exit 0
+		;;
+	--version)
+		echo "arch $VERSION"
+		echo "licensed under the BSD Zero Clause License (0BSD)"
+		exit 0
+		;;
+	"")
+		# No arguments - just run uname -m
+		exec uname -m
+		;;
+	*)
+		echo "arch: invalid option -- '$1'" >&2
+		echo "try 'arch --help' for more information" >&2
+		exit 1
+		;;
+esac
+EOF
+	
+	chmod 755 "$pkgdir/usr/bin/arch"
+
+	install -dm755 "$pkgdir/usr/share/man/man1"
+	cat > "$pkgdir/usr/share/man/man1/arch.1" << 'MANPAGE'
+.TH ARCH 1 "kj-arch-bin-wrapper" "User Commands"
+.SH NAME
+arch \- print machine hardware name (same as uname \-m)
+.SH SYNOPSIS
+.B arch
+[\fIOPTION\fR]...
+.SH DESCRIPTION
+print machine architecture.
+.TP
+\fB\-\-help\fR
+display this help and exit
+.TP
+\fB\-\-version\fR
+display version information
+.SH AUTHOR
+wrapper script created by the `kj-arch-bin-wrapper` package.
+.SH SEE ALSO
+.BR uname (1),
+.BR uname (2)
+MANPAGE
+}
+
+# vim:set ts=2 sw=2 et:
