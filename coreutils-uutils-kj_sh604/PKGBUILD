@@ -1,7 +1,7 @@
 # Maintainer: kj_sh604 <406hs_jk@proton.me>
 
 pkgname=coreutils-uutils-kj_sh604
-pkgver=0.6.0
+pkgver=0.7.0
 pkgrel=1
 pkgdesc='Cross-platform Rust rewrite of the GNU coreutils installed as system
 core utilities (WARNING: use at own risk).'
@@ -32,7 +32,7 @@ makedepends=(
 source=(
   "uutils-coreutils-$pkgver.tar.gz::$url/archive/$pkgver.tar.gz"
 )
-sha256sums=('f751b8209ec05ae304941a727e42a668dcc45674986252f44d195ed43ccfad2f')
+sha256sums=('dc56a3c4632742357d170d60a7dcecb9693de710daeaafa3ad925750b1905522')
 
 # this line inside prepare does not work without clean build
 export RUSTONIG_DYNAMIC_LIBONIG=1
@@ -45,7 +45,7 @@ package() {
       MANDIR=/share/man/man1 \
       LIBSTDBUF_DIR=/usr/lib/${pkgname%-uutils-kj_sh604} \
       PROG_PREFIX= \
-      PROFILE=release-fast \
+      PROFILE=release \
       MULTICALL=y \
       SKIP_UTILS="hostname kill more uptime"
   # clean conflicts (arch ships these in the bash-completion package)
