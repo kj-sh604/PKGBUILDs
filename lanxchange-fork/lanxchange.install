@@ -1,5 +1,0 @@
-# Maintainer: Dimitris Kiziridis <ragouel at outlook dot com>
-
-post_remove() {
-  sudo rm -rf /opt/lanxchange
-}

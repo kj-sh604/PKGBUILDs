@@ -1,6 +1,0 @@
-pkg/
-src/
-gnulib/
-grep/
-*.sig
-*.tar*
