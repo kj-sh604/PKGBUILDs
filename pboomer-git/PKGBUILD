@@ -1,5 +1,5 @@
 pkgname='pboomer-git'
-pkgver=r4.9864772
+pkgver=r5.01205e1
 pkgrel=1
 pkgdesc="Zoomer application for Linux (Python rewrite of boomer)."
 arch=('any')
