@@ -1,0 +1,23 @@
+pkgbase = pboomer-git
+	pkgdesc = Zoomer application for Linux (Python rewrite of boomer).
+	pkgver = r2.43333b0
+	pkgrel = 1
+	url = https://kj-git.com/pboomer/
+	arch = any
+	license = 0BSD
+	makedepends = git
+	depends = python
+	depends = python-mss
+	depends = python-opengl
+	depends = python-glfw
+	depends = python-numpy
+	depends = libx11
+	provides = boomer
+	provides = pboomer
+	conflicts = boomer
+	conflicts = boomer-git
+	conflicts = pboomer
+	source = pboomer::git+https://kj-git.com/pboomer/
+	md5sums = SKIP
+
+pkgname = pboomer-git

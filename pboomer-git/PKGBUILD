@@ -1,0 +1,38 @@
+pkgname='pboomer-git'
+pkgver=r2.43333b0
+pkgrel=1
+pkgdesc="Zoomer application for Linux (Python rewrite of boomer)."
+arch=('any')
+url="https://kj-git.com/pboomer/"
+license=('0BSD')
+
+depends=(
+    'python'
+    'python-mss'
+    'python-opengl'
+    'python-glfw'
+    'python-numpy'
+    'libx11'
+)
+makedepends=('git')
+provides=('boomer' "${pkgname%-git}")
+conflicts=('boomer' 'boomer-git' "${pkgname%-git}")
+
+source=(
+    "${pkgname%-git}::git+https://kj-git.com/pboomer/"
+    # "${pkgname%-git}::git+https://github.com/kj-sh604/pboomer"
+)
+md5sums=('SKIP')
+
+pkgver() {
+    cd "$srcdir/${pkgname%-git}"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+    cd "$srcdir/${pkgname%-git}"
+    install -Dm755 ./pboomer "$pkgdir/usr/bin/pboomer"
+    ln -s /usr/bin/pboomer "$pkgdir/usr/bin/boomer"
+    install -Dm644 ./README "$pkgdir/usr/share/doc/$pkgname/README"
+    install -Dm644 ./LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
