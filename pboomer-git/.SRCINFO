@@ -1,6 +1,6 @@
 pkgbase = pboomer-git
 	pkgdesc = Zoomer application for Linux (Python rewrite of boomer).
-	pkgver = r5.01205e1
+	pkgver = r6.13327a7
 	pkgrel = 1
 	url = https://kj-git.com/pboomer/
 	arch = any
