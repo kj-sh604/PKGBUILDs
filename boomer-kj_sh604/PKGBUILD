@@ -1,5 +1,5 @@
 pkgname='boomer-kj_sh604'
-pkgver=r295.3ad0c3c
+pkgver=r296.733b373
 pkgrel=1
 pkgdesc="Zoomer application for Linux."
 arch=('x86_64')
@@ -26,12 +26,12 @@ pkgver() {
 
 prepare() {
     cd "$srcdir/${pkgname%-kj_sh604}"
-    nimble -y install
+    nimble --legacy -y install
 }
 
 build() {
     cd "$srcdir/${pkgname%-kj_sh604}"
-    nimble -y build
+    nimble --legacy -y build
 }
 
 package() {
