@@ -1,21 +1,17 @@
 pkgbase = kj-boomer-git
-	pkgdesc = Zoomer application for Linux (C rewrite of boomer).
-	pkgver = r0.0
+	pkgdesc = Zoomer application for Linux (zig port of boomer).
+	pkgver = r8.13b48ad
 	pkgrel = 1
 	url = https://kj-git.com/kj-boomer/
 	arch = x86_64
-	license = MIT
+	license = 0BSD
 	makedepends = git
+	makedepends = zig
 	depends = libx11
 	depends = libgl
 	depends = libxext
 	depends = libxrandr
 	depends = glew
-	provides = boomer
-	provides = kj-boomer
-	conflicts = boomer
-	conflicts = boomer-git
-	conflicts = kj-boomer
 	source = kj-boomer::git+https://kj-git.com/kj-boomer/
 	md5sums = SKIP
 
