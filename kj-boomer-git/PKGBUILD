@@ -1,0 +1,42 @@
+pkgname='kj-boomer-git'
+pkgver=r8.13b48ad
+pkgrel=1
+pkgdesc="Zoomer application for Linux (C rewrite of boomer)."
+arch=('x86_64')
+url="https://kj-git.com/kj-boomer/"
+license=('0BSD')
+
+depends=(
+    'libx11'
+    'libgl'
+    'libxext'
+    'libxrandr'
+    'glew'
+)
+makedepends=('git')
+provides=('boomer' "${pkgname%-git}")
+conflicts=('boomer' 'boomer-git' "${pkgname%-git}")
+
+source=(
+    "${pkgname%-git}::git+https://kj-git.com/kj-boomer/"
+)
+md5sums=('SKIP')
+
+pkgver() {
+    cd "$srcdir/${pkgname%-git}"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd "$srcdir/${pkgname%-git}"
+    make
+}
+
+package() {
+    cd "$srcdir/${pkgname%-git}"
+    install -Dm755 ./boomer "$pkgdir/usr/bin/boomer"
+    install -Dm644 ./README "$pkgdir/usr/share/doc/$pkgname/README"
+    install -Dm644 ./LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
+
+# vim:set ts=2 sw=2 et:
