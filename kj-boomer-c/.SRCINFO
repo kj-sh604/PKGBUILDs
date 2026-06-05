@@ -1,0 +1,24 @@
+pkgbase = kj-boomer-c
+	pkgdesc = Zoomer application for Linux (C version of boomer).
+	pkgver = 20260605
+	pkgrel = 1
+	url = https://kj-git.com/kj-boomer/
+	arch = x86_64
+	license = MIT
+	makedepends = gcc
+	makedepends = git
+	depends = libx11
+	depends = libgl
+	depends = libxext
+	depends = libxrandr
+	depends = glew
+	provides = boomer
+	provides = kj-boomer
+	conflicts = boomer
+	conflicts = boomer-git
+	conflicts = kj-boomer
+	conflicts = kj-boomer-git
+	source = kj-boomer::git+https://kj-git.com/kj-boomer/#commit=c9e9fb555de40971a5f2b093ae966e8e5c799da2
+	sha512sums = 6a4850eb35fc3ea651aed7c2309cc02bb0b3f63713ad62e600e7e8b85c5f87685d666447f328b5922f02b529fe0290d84c85963a080453ca1827f7ebbde633e8
+
+pkgname = kj-boomer-c

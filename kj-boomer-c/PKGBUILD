@@ -1,0 +1,27 @@
+# PKGBUILD for kj-boomer-c
+
+pkgname="kj-boomer-c"
+pkgver="20260605"
+pkgrel="1"
+pkgdesc="Zoomer application for Linux (C version of boomer)."
+arch=("x86_64")
+url="https://kj-git.com/kj-boomer/"
+license=("MIT")
+makedepends=("gcc" "git")
+depends=("libx11" "libgl" "libxext" "libxrandr" "glew")
+provides=("boomer" "kj-boomer")
+conflicts=("boomer" "boomer-git" "kj-boomer" "kj-boomer-git")
+source=("kj-boomer::git+https://kj-git.com/kj-boomer/#commit=c9e9fb555de40971a5f2b093ae966e8e5c799da2")
+sha512sums=('6a4850eb35fc3ea651aed7c2309cc02bb0b3f63713ad62e600e7e8b85c5f87685d666447f328b5922f02b529fe0290d84c85963a080453ca1827f7ebbde633e8')
+
+build() {
+    cd "$srcdir/${pkgname%-c}"
+    make
+}
+
+package() {
+    cd "$srcdir/${pkgname%-c}"
+    install -Dm755 ./boomer "$pkgdir/usr/bin/boomer"
+    install -Dm644 ./README "$pkgdir/usr/share/doc/$pkgname/README"
+    install -Dm644 ./LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
