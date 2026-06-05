@@ -1,6 +1,6 @@
 pkgbase = kj-boomer-git
 	pkgdesc = Zoomer application for Linux (zig port of boomer).
-	pkgver = r67.ffb0182
+	pkgver = r68.30cfa83
 	pkgrel = 1
 	url = https://kj-git.com/kj-boomer/
 	arch = x86_64

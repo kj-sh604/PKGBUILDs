@@ -1,5 +1,5 @@
 pkgname='kj-boomer-git'
-pkgver=r67.ffb0182
+pkgver=r68.30cfa83
 pkgrel=1
 pkgdesc="Zoomer application for Linux (zig port of boomer)."
 arch=('x86_64')
