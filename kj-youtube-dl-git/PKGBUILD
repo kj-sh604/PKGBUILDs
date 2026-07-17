@@ -1,5 +1,5 @@
 pkgname=kj-youtube-dl-git
-pkgver=r13.09681d4
+pkgver=r20.5f24330
 pkgrel=1
 pkgdesc="yup, yet another youtube-dl/yt-dlp GUI wrapper"
 arch=('x86_64')
@@ -11,7 +11,7 @@ optdepends=('mpv: streaming support')
 # best practice shit right here
 provides=('kj-youtube-dl')
 conflicts=('kj-youtube-dl')
-source=("git+https://github.com/kj-sh604/kj-youtube-dl.git")
+source=("git+https://kj-git.com/kj-youtube-dl/")
 sha384sums=('SKIP')
 
 pkgver() {
@@ -26,7 +26,7 @@ build() {
 
 package() {
   cd "${srcdir}/kj-youtube-dl" || return 1
-  install -Dm755 bin/kj-youtube-dl "${pkgdir}/usr/bin/kj-youtube-dl"
-  install -Dm644 archlinux/kj-youtube-dl.desktop "${pkgdir}/usr/share/applications/kj-youtube-dl.desktop"
+  install -Dm755 kj-youtube-dl "${pkgdir}/usr/bin/kj-youtube-dl"
+  install -Dm644 kj-youtube-dl.desktop "${pkgdir}/usr/share/applications/kj-youtube-dl.desktop"
   install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
