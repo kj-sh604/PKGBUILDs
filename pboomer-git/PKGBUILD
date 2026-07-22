@@ -13,7 +13,7 @@ depends=(
 )
 makedepends=('git')
 provides=('boomer' "${pkgname%-git}")
-conflicts=('boomer' 'boomer-git' "${pkgname%-git}")
+conflicts=('boomer' 'boomer-git' 'kj-boomer-git' "${pkgname%-git}")
 
 source=(
     "${pkgname%-git}::git+https://kj-git.com/pboomer/"

@@ -12,6 +12,11 @@ pkgbase = kj-boomer-git
 	depends = libxext
 	depends = libxrandr
 	depends = glew
+	provides = boomer
+	provides = kj-boomer
+	conflicts = boomer
+	conflicts = boomer-git
+	conflicts = kj-boomer
 	source = kj-boomer::git+https://kj-git.com/kj-boomer/
 	md5sums = SKIP
 

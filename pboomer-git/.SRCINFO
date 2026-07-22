@@ -13,6 +13,7 @@ pkgbase = pboomer-git
 	provides = pboomer
 	conflicts = boomer
 	conflicts = boomer-git
+	conflicts = kj-boomer-git
 	conflicts = pboomer
 	source = pboomer::git+https://kj-git.com/pboomer/
 	md5sums = SKIP
