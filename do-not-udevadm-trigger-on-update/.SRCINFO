@@ -1,0 +1,8 @@
+pkgbase = do-not-udevadm-trigger-on-update
+	pkgdesc = creates /etc/systemd/do-not-udevadm-trigger-on-update
+	pkgver = 20260721
+	pkgrel = 2001
+	arch = any
+	license = 0BSD
+
+pkgname = do-not-udevadm-trigger-on-update

@@ -1,0 +1,12 @@
+# Maintainer: kj_sh604 <406hs_jk@proton.me>
+
+pkgname=do-not-udevadm-trigger-on-update
+pkgver=20260721
+pkgrel=2001
+pkgdesc="creates /etc/systemd/do-not-udevadm-trigger-on-update"
+arch=('any')
+license=('0BSD')
+
+package() {
+  install -Dm644 /dev/null "$pkgdir"/etc/systemd/do-not-udevadm-trigger-on-update
+}
