@@ -1,5 +1,5 @@
 pkgname=kj-youtube-dl-git
-pkgver=r25.196405a
+pkgver=r26.7d556e0
 pkgrel=1
 pkgdesc="yup, yet another youtube-dl/yt-dlp GUI wrapper"
 arch=('x86_64')
@@ -28,5 +28,6 @@ package() {
   cd "${srcdir}/kj-youtube-dl" || return 1
   install -Dm755 kj-youtube-dl "${pkgdir}/usr/bin/kj-youtube-dl"
   install -Dm644 kj-youtube-dl.desktop "${pkgdir}/usr/share/applications/kj-youtube-dl.desktop"
+  install -Dm644 kj-youtube-dl.svg "${pkgdir}/usr/share/icons/hicolor/scalable/apps/kj-youtube-dl.svg"
   install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
