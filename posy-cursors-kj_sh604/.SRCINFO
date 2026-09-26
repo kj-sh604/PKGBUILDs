@@ -1,13 +1,13 @@
 pkgbase = posy-cursors-kj_sh604
 	pkgdesc = Posy's improved X11 cursor themes (vendored linux 1.6 set with kj_sh604 custom set)
 	pkgver = 1.6
-	pkgrel = 3
+	pkgrel = 4
 	url = http://www.michieldb.nl/other/cursors
 	arch = any
 	license = custom
 	provides = posy-cursors
 	conflicts = posy-cursors
 	source = https://kj-media.online/files/posy-cursors-linux-1-6/posy-cursors-linux-1.6.tar
-	sha256sums = 35c7e059dd8cd5acd1e0aeceae12566375747efde38df011edb6998f2b7a5c79
+	sha256sums = 1d6bffd14cd34e2667487e7ae8b68815717deb997e7e68082c12417c4824dd92
 
 pkgname = posy-cursors-kj_sh604
