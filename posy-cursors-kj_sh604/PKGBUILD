@@ -1,0 +1,25 @@
+# Maintainer: kj_sh604 <406hs_jk@proton.me>
+
+pkgname=posy-cursors-kj_sh604
+pkgver=1.6
+pkgrel=1
+pkgdesc="Posy's improved X11 cursor themes (vendored linux 1.6 set)"
+arch=('any')
+url="http://www.michieldb.nl/other/cursors"
+license=('custom')
+provides=('posy-cursors')
+conflicts=('posy-cursors')
+source=("https://kj-media.online/files/posy-cursors-linux-1-6/posy-cursors-linux-1.6.tar")
+sha256sums=('9ca39576f92af987dff612ab7ad707a98bfaaa8dfa1c0a92e58edc6909192bca')
+
+package() {
+  install -dm755 "${pkgdir}/usr/share/icons"
+  for _theme in posy posy-125-175 posy-Black posy-Black-125-175 posy-Left posy-Mono posy-Mono-Black posy-Strokeless; do
+    cp -dr --no-preserve=ownership "${srcdir}/${_theme}" "${pkgdir}/usr/share/icons/"
+  done
+  # normalize perms: vendored tar carries 777 on cursor files
+  find "${pkgdir}/usr/share/icons" -type d -exec chmod 755 {} +
+  find "${pkgdir}/usr/share/icons" -type f -exec chmod 644 {} +
+}
+
+# vim: set ts=2 sw=2 et:
