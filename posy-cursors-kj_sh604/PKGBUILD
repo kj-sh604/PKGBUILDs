@@ -1,16 +1,16 @@
 # Maintainer: kj_sh604 <406hs_jk@proton.me>
 
 pkgname=posy-cursors-kj_sh604
-pkgver=1.6
-pkgrel=4
+pkgver=1.7
+pkgrel=1
 pkgdesc="Posy's improved X11 cursor themes (vendored linux 1.6 set with kj_sh604 custom set)"
 arch=('any')
 url="http://www.michieldb.nl/other/cursors"
 license=('custom')
 provides=('posy-cursors')
 conflicts=('posy-cursors')
-source=("https://kj-media.online/files/posy-cursors-linux-1-6/posy-cursors-linux-1.6.tar")
-sha256sums=('1d6bffd14cd34e2667487e7ae8b68815717deb997e7e68082c12417c4824dd92')
+source=("https://kj-media.online/files/posy-cursors-linux-1-7/posy-cursors-linux-1.7.tar")
+sha256sums=('6536b370649f3b51d4cb6e5bc1bfe9ffe9d6765b0cb122eb3d9b7bec17dc37c3')
 
 package() {
   install -dm755 "${pkgdir}/usr/share/icons"
