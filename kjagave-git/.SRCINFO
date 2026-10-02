@@ -1,17 +1,17 @@
 pkgbase = kjagave-git
 	pkgdesc = a color picker inspired by agave, but only with the features that kj_sh604 used
-	pkgver = r26.924d977
+	pkgver = r28.740e634
 	pkgrel = 1
-	url = https://github.com/kj-sh604/kjagave
+	url = https://kj-git.com/kjagave/
 	arch = x86_64
-	license = GPL2
+	license = 0BSD
 	makedepends = go
 	makedepends = git
 	depends = gtk3
 	optdepends = xcolor: for screen color picking
 	provides = kjagave
 	conflicts = kjagave
-	source = git+https://github.com/kj-sh604/kjagave.git
-	sha256sums = SKIP
+	source = git+https://kj-git.com/kjagave/
+	sha384sums = SKIP
 
 pkgname = kjagave-git

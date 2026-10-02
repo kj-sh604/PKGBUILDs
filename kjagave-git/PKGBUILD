@@ -1,0 +1,39 @@
+pkgname=kjagave-git
+pkgver=r28.740e634
+pkgrel=1
+pkgdesc="a color picker inspired by agave, but only with the features that kj_sh604 used"
+arch=('x86_64')
+url="https://kj-git.com/kjagave/"
+license=('0BSD')
+depends=('gtk3')
+optdepends=('xcolor: for screen color picking')
+makedepends=('go' 'git')
+provides=('kjagave')
+conflicts=('kjagave')
+source=("git+https://kj-git.com/kjagave/")
+sha384sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}/kjagave" || return 1
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "${srcdir}/kjagave" || return 1
+  export CGO_CPPFLAGS="${CPPFLAGS}"
+  export CGO_CFLAGS="${CFLAGS}"
+  export CGO_CXXFLAGS="${CXXFLAGS}"
+  export CGO_LDFLAGS="${LDFLAGS}"
+  export GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external -modcacherw"
+  # prime go.sum since it is not tracked upstream
+  (cd src && go mod download github.com/gotk3/gotk3)
+  make PREFIX=/usr
+}
+
+package() {
+  cd "${srcdir}/kjagave" || return 1
+  make DESTDIR="$pkgdir" PREFIX=/usr install
+  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
+
+# vim:set ts=2 sw=2 et:
