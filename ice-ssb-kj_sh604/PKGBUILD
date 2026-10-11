@@ -1,0 +1,35 @@
+_name=ice
+_upver=6.0.8
+pkgname=ice-ssb-kj_sh604
+pkgver=20261011
+pkgrel=1415
+
+pkgdesc='Desktop integration for webapps'
+url="https://github.com/peppermintos/$_name"
+arch=('any')
+license=('GPL2')
+
+provides=('ice-ssb')
+conflicts=('ice-ssb' 'ice-ssb-git')
+
+depends=('python-requests' 'python-beautifulsoup4' 'python-gobject' 'python-lxml')
+optdepends=('brave' 'firefox' 'chromium' 'google-chrome' 'vivaldi')
+
+# original upstream source: https://github.com/peppermintos/ice/archive/v6.0.8.tar.gz
+source=("ice-ssb.tar.gz::https://kj-media.online/files/ice-ssb-$pkgver-$pkgrel/ice-ssb.tar.gz"
+        "$_name.patch")
+sha256sums=('978efb2fb8447fd1dc95eb5c94bff872afe1e43e9a695eef77f2688d82ff90b0'
+            '216dc6bc7f60fb48ad2cc5ba8e477d66fa03265779180e525d4fc35942203c59')
+
+prepare() {
+  cd "$_name-$_upver"
+  patch --verbose -Np1 <"../$_name.patch"
+}
+
+package() {
+  cd "$_name-$_upver"
+  cp -a --no-preserve=o usr "$pkgdir/"
+  install -Dm644 README.md -t"$pkgdir/usr/share/doc/$_name/"
+}
+
+# vim: ts=2 sw=2 et ft=PKGBUILD:

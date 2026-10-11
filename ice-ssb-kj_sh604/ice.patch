@@ -1,0 +1,29 @@
+# arch linux browser binary paths for ice 6.0.8
+# adapted from the ice-ssb-git patch by kevin veldman (taconomix)
+
+diff -ru old/usr/bin/ice new/usr/bin/ice
+--- old/usr/bin/ice	2026-10-11 14:34:16.947629039 -0400
++++ new/usr/bin/ice	2026-10-11 14:34:27.765827334 -0400
+@@ -38,8 +38,8 @@
+ _PROFILES_DIR = "{0}/profiles".format(_ICE_DIR)
+ _FF_PROFILES_DIR = "{0}/firefox".format(_ICE_DIR)
+ _ICE_ICON = "/usr/share/pixmaps/ice.png"
+-_CHROME_BIN = "/usr/bin/google-chrome"
+-_CHROMIUM_BIN = "/usr/bin/chromium-browser"
++_CHROME_BIN = "/usr/bin/google-chrome-stable"
++_CHROMIUM_BIN = "/usr/bin/chromium"
+ _VIVALDI_BIN = "/usr/bin/vivaldi"
+ _FIREFOX_BIN = "/usr/bin/firefox"
+ 
+@@ -256,9 +256,9 @@
+     appfile = os.path.expanduser("{0}/{1}.desktop".format(_APPS_DIR, formatted))
+     os.system("touch {0}".format(appfile))
+     if chrome.get_active() == True:
+-        browser = "google-chrome"
++        browser = "google-chrome-stable"
+     elif chromium.get_active() == True:
+-        browser = "chromium-browser"
++        browser = "chromium"
+     elif vivaldi.get_active() == True:
+         browser = "vivaldi"
+     elif firefox.get_active() == True:
